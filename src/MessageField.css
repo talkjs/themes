@@ -160,7 +160,7 @@
 .t-theme-message-field .t-editor .t-text-input {
   min-height: var(--t-message-control-height);
   max-height: 9em;
-  border-radius: 9999px;
+  border-radius: calc(var(--t-message-control-height) / 2);
   border: 1px solid white;
 
   background-color: white;
@@ -230,7 +230,7 @@
 
 .t-theme-message-field .t-send-column button:not([disabled]):hover,
 .t-theme-message-field .t-send-column button:not([disabled]):focus {
-  background-color: #1D4ED8;
+  background-color: #1d4ed8;
   color: white;
 }
 
