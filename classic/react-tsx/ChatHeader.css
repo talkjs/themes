@@ -1,0 +1,178 @@
+.t-theme-chat-header {
+  display: flex;
+  align-items: center;
+  height: 4.75em;
+  background-color: rgb(236 236 236);
+  border-bottom: 1px solid rgb(212 212 212);
+  flex-shrink: 0;
+}
+
+.t-theme-chat-header .t-inner {
+  flex-grow: 1;
+  flex-basis: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  min-width: 0;
+}
+
+.t-theme-chat-header .t-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.t-theme-chat-header .t-image {
+  width: 45px;
+  text-align: center;
+  margin-right: 0.75em;
+  flex-shrink: 0;
+}
+
+.t-theme-chat-header .t-info {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
+}
+
+.t-theme-chat-header .t-title {
+  font-weight: 600;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 3px;
+}
+
+.t-theme-chat-header .t-subtitle {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 85%;
+  margin-left: 4px;
+}
+
+.t-theme-chat-header .t-user {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.t-theme-chat-header .t-online-indicator {
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  border-radius: 100%;
+  margin: 0 0.75em -1px 0.275em;
+}
+
+.t-theme-chat-header .t-online-indicator[t-status="online"] {
+  background-color: rgb(34 197 94);
+}
+
+.t-theme-chat-header .t-online-indicator[t-status="offline"] {
+  background-color: rgb(255 255 255);
+  -webkit-box-shadow: inset 0 0 0 1px rgb(50 50 50 / 40%);
+  box-shadow: inset 0 0 0 1px rgb(50 50 50 / 40%);
+}
+
+.t-theme-chat-header .t-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.t-theme-chat-header .t-action-button {
+  /* removing the browser's default button styles: */
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  color: rgb(82 82 82);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    color 150ms ease-out,
+    box-shadow 150ms ease-out;
+
+  /* Increase the tap size of the button */
+  box-sizing: content-box;
+  padding: 0;
+  margin: -0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.t-theme-chat-header .t-action-button svg {
+  color: currentColor;
+  fill: currentColor;
+}
+
+.t-theme-chat-header .t-action-button:hover,
+.t-theme-chat-header .t-action-button:focus {
+  background-color: transparent;
+  color: rgb(17 17 17);
+}
+
+.t-theme-chat-header .t-action-button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgb(0 125 249 / 50%);
+}
+
+.t-theme-chat-header .t-action-button:disabled,
+.t-theme-chat-header .t-action-button[disabled] {
+  cursor: initial;
+  color: rgb(163 163 163);
+}
+
+.t-theme-chat-header .t-action-button:disabled:hover,
+.t-theme-chat-header .t-action-button[disabled]:hover,
+.t-theme-chat-header .t-action-button:disabled:focus,
+.t-theme-chat-header .t-action-button[disabled]:focus {
+  background-color: transparent;
+  color: rgb(163 163 163);
+}
+
+.t-theme-chat-header .t-back-button {
+  display: none;
+
+  margin-left: -0.5em;
+  margin-right: 0.5em;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: rgb(82 82 82);
+  transition:
+    color 150ms ease-out,
+    box-shadow 150ms ease-out;
+}
+
+.t-theme-chat-header .t-back-button svg {
+  color: currentColor;
+  fill: currentColor;
+}
+
+.t-theme-chat-header .t-back-button:hover,
+.t-theme-chat-header .t-back-button:focus {
+  background-color: transparent;
+  color: rgb(17 17 17);
+}
+
+.t-theme-chat-header .t-back-button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgb(0 125 249 / 50%);
+}
+
+[t-mobile-inbox] .t-theme-chat-header .t-back-button {
+  display: inline-flex;
+}

@@ -1,0 +1,37 @@
+.t-theme-global-search-result-header {
+  padding-bottom: 1.14em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.t-theme-global-search-result-header .t-title {
+  padding: 0.86em 1.14em 0.57em;
+  font-weight: 600;
+  font-size: 0.86em;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.t-theme-global-search-result-header .t-show-more {
+  background: none;
+  border: none;
+  font-size: 0.86em;
+  color: #0066cc;
+  text-transform: none;
+  cursor: pointer;
+  padding: 0.86em 1.14em 0.57em;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+
+.t-theme-global-search-result-header .t-show-more:hover:not(:disabled) {
+  color: #0052a3;
+  text-decoration: underline;
+}
+
+.t-theme-global-search-result-header .t-show-more:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

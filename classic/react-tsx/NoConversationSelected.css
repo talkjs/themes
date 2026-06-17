@@ -1,0 +1,16 @@
+/* We only want to show this when the chatbox is part of an inbox component */
+.t-theme-no-conversation-selected {
+  display: none;
+}
+
+.t-inbox .t-theme-no-conversation-selected,
+t-inbox .t-theme-no-conversation-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 2em;
+  color: #95a7b1;
+  text-align: center;
+}

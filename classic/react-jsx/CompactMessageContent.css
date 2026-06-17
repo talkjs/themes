@@ -1,0 +1,27 @@
+.t-theme-compact-message-content > .t-icon {
+  width: 1.25em;
+  height: 1.25em;
+  margin-right: 0.25em;
+}
+
+/* The following sections ensure that lists are more compact by only displaying the first item in the list.*/
+.t-theme-compact-message-content .t-text {
+  display: block;
+  height: 1em; /* iOS 15 compatibility */
+  height: 1lh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.t-theme-compact-message-content .t-text ul {
+  margin: 0;
+  padding: 0;
+}
+
+.t-theme-compact-message-content .t-text li {
+  padding-left: 0.5em;
+  list-style: inside;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
