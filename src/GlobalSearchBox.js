@@ -1,5 +1,5 @@
-import { html, SearchInput, Icon } from "@talkjs/react-components";
-/** @import { GlobalSearchBoxProps } from "@talkjs/react-components"; */
+import { html, SearchInput, Icon } from "@talkjs/web-components";
+/** @import { GlobalSearchBoxProps } from "@talkjs/web-components"; */
 
 /** @param {GlobalSearchBoxProps} props */
 export function GlobalSearchBox(props) {

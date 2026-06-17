@@ -5,8 +5,8 @@ import {
   Editor,
   EmojiSuggestBar,
   MentionSuggestList,
-} from "@talkjs/react-components";
-/** @import { MessageFieldProps } from "@talkjs/react-components"; */
+} from "@talkjs/web-components";
+/** @import { MessageFieldProps } from "@talkjs/web-components"; */
 
 /** @param {MessageFieldProps} props */
 export function MessageField(props) {

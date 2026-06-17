@@ -1,5 +1,5 @@
-import { html } from "@talkjs/react-components";
-/** @import { NoConversationSelectedProps } from "@talkjs/react-components"; */
+import { html } from "@talkjs/web-components";
+/** @import { NoConversationSelectedProps } from "@talkjs/web-components"; */
 
 /**
  * NoConversationSelected is rendered inside the chatbox panel when `conversationId` is

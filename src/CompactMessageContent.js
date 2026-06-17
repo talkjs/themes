@@ -1,5 +1,5 @@
-import { html, formatDuration, Text, Icon } from "@talkjs/react-components";
-/** @import { CompactMessageContentProps } from "@talkjs/react-components"; */
+import { html, formatDuration, Text, Icon } from "@talkjs/web-components";
+/** @import { CompactMessageContentProps } from "@talkjs/web-components"; */
 
 /** @param {CompactMessageContentProps} props */
 export function CompactMessageContent(props) {

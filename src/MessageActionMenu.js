@@ -1,5 +1,5 @@
-import { html, MenuItem } from "@talkjs/react-components";
-/** @import { MessageActionMenuProps } from "@talkjs/react-components"; */
+import { html, MenuItem } from "@talkjs/web-components";
+/** @import { MessageActionMenuProps } from "@talkjs/web-components"; */
 
 /** @param {MessageActionMenuProps} props */
 export function MessageActionMenu(props) {

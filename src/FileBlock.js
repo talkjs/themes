@@ -3,8 +3,8 @@ import {
   formatFilesize,
   Highlightable,
   Icon,
-} from "@talkjs/react-components";
-/** @import { FileBlockProps } from "@talkjs/react-components"; */
+} from "@talkjs/web-components";
+/** @import { FileBlockProps } from "@talkjs/web-components"; */
 
 /** @param {FileBlockProps} props */
 export function FileBlock({ block, downloadUrl }) {

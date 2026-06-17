@@ -3,8 +3,8 @@ import {
   formatFilesize,
   Highlightable,
   Icon,
-} from "@talkjs/react-components";
-/** @import { VideoBlockProps } from "@talkjs/react-components"; */
+} from "@talkjs/web-components";
+/** @import { VideoBlockProps } from "@talkjs/web-components"; */
 
 /** @param {VideoBlockProps} props */
 export function VideoBlock({ block, downloadUrl }) {

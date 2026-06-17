@@ -1,5 +1,5 @@
-import { html, useParticipants, Icon } from "@talkjs/react-components";
-/** @import { ChatHeaderProps } from "@talkjs/react-components"; */
+import { html, useParticipants, Icon } from "@talkjs/web-components";
+/** @import { ChatHeaderProps } from "@talkjs/web-components"; */
 
 /** @param {ChatHeaderProps} props */
 export function ChatHeader(props) {

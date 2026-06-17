@@ -1,5 +1,5 @@
-import { html, VirtualMessage } from "@talkjs/react-components";
-/** @import { BeforeMessagesProps } from "@talkjs/react-components"; */
+import { html, VirtualMessage } from "@talkjs/web-components";
+/** @import { BeforeMessagesProps } from "@talkjs/web-components"; */
 
 /**
  * BeforeMessages is rendered inside the message list container, before the first message.

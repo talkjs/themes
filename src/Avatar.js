@@ -1,5 +1,5 @@
-import { html } from "@talkjs/react-components";
-/** @import { AvatarProps } from "@talkjs/react-components"; */
+import { html } from "@talkjs/web-components";
+/** @import { AvatarProps } from "@talkjs/web-components"; */
 
 /** @param {AvatarProps} props */
 export function Avatar({ photoUrl }) {

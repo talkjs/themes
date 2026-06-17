@@ -1,5 +1,5 @@
-import { html, useParticipants, Highlightable } from "@talkjs/react-components";
-/** @import { GlobalSearchResultItemProps } from "@talkjs/react-components"; */
+import { html, useParticipants, Highlightable } from "@talkjs/web-components";
+/** @import { GlobalSearchResultItemProps } from "@talkjs/web-components"; */
 
 /** @param {GlobalSearchResultItemProps} props */
 export function GlobalSearchResultItem(props) {

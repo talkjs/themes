@@ -8,8 +8,8 @@ import {
   useParticipants,
   useReactions,
   Icon,
-} from "@talkjs/react-components";
-/** @import { CommonChatboxProps,  MessageProps } from "@talkjs/react-components"; */
+} from "@talkjs/web-components";
+/** @import { CommonChatboxProps,  MessageProps } from "@talkjs/web-components"; */
 
 /** @param {MessageProps} props */
 export function Message(props) {

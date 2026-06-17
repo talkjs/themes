@@ -3,8 +3,8 @@ import {
   formatFilesize,
   Highlightable,
   Icon,
-} from "@talkjs/react-components";
-/** @import { ImageBlockProps } from "@talkjs/react-components"; */
+} from "@talkjs/web-components";
+/** @import { ImageBlockProps } from "@talkjs/web-components"; */
 
 /** @param {ImageBlockProps} props */
 export function ImageBlock({ block, downloadUrl }) {

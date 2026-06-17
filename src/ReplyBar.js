@@ -1,5 +1,5 @@
-import { html, Icon } from "@talkjs/react-components";
-/** @import { ReplyBarProps } from "@talkjs/react-components"; */
+import { html, Icon } from "@talkjs/web-components";
+/** @import { ReplyBarProps } from "@talkjs/web-components"; */
 
 /** @param {ReplyBarProps} props */
 export function ReplyBar(props) {

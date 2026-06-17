@@ -1,5 +1,5 @@
-import { html } from "@talkjs/react-components";
-/** @import { GlobalSearchResultHeaderProps } from "@talkjs/react-components"; */
+import { html } from "@talkjs/web-components";
+/** @import { GlobalSearchResultHeaderProps } from "@talkjs/web-components"; */
 
 /** @param {GlobalSearchResultHeaderProps} props */
 export function GlobalSearchResultHeader(props) {

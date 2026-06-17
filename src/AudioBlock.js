@@ -4,8 +4,8 @@ import {
   formatFilesize,
   Highlightable,
   Icon,
-} from "@talkjs/react-components";
-/** @import { AudioBlockProps } from "@talkjs/react-components"; */
+} from "@talkjs/web-components";
+/** @import { AudioBlockProps } from "@talkjs/web-components"; */
 
 /** @param {AudioBlockProps} props */
 export function AudioBlock({ block, downloadUrl }) {

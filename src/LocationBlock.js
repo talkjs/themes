@@ -1,5 +1,5 @@
-import { html, getGoogleMapsUrls } from "@talkjs/react-components";
-/** @import { LocationBlockProps } from "@talkjs/react-components"; */
+import { html, getGoogleMapsUrls } from "@talkjs/web-components";
+/** @import { LocationBlockProps } from "@talkjs/web-components"; */
 
 /** @param {LocationBlockProps} props */
 export function LocationBlock({ block }) {

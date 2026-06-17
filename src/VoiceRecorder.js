@@ -1,5 +1,5 @@
-import { html, formatDuration, Waveform, Icon } from "@talkjs/react-components";
-/** @import { VoiceRecorderProps } from "@talkjs/react-components"; */
+import { html, formatDuration, Waveform, Icon } from "@talkjs/web-components";
+/** @import { VoiceRecorderProps } from "@talkjs/web-components"; */
 
 /**
  * VoiceRecorder renders during active voice recording.

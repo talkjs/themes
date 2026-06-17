@@ -1,5 +1,5 @@
-import { html, getPhotoUrlWithFallback } from "@talkjs/react-components";
-/** @import { AfterMessagesProps } from "@talkjs/react-components"; */
+import { html, getPhotoUrlWithFallback } from "@talkjs/web-components";
+/** @import { AfterMessagesProps } from "@talkjs/web-components"; */
 
 /**
  * AfterMessages is rendered inside the message list container, after the last message.

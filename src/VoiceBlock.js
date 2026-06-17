@@ -1,5 +1,5 @@
-import { html, AudioPlayer } from "@talkjs/react-components";
-/** @import { VoiceBlockProps } from "@talkjs/react-components"; */
+import { html, AudioPlayer } from "@talkjs/web-components";
+/** @import { VoiceBlockProps } from "@talkjs/web-components"; */
 
 /** @param {VoiceBlockProps} props */
 export function VoiceBlock({ block }) {

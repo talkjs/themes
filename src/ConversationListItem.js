@@ -1,5 +1,5 @@
-import { html, useParticipants } from "@talkjs/react-components";
-/** @import { ConversationListItemProps } from "@talkjs/react-components"; */
+import { html, useParticipants } from "@talkjs/web-components";
+/** @import { ConversationListItemProps } from "@talkjs/web-components"; */
 
 /** @param {ConversationListItemProps} props */
 export function ConversationListItem(props) {

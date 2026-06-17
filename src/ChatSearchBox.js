@@ -1,5 +1,5 @@
-import { html, SearchInput, Icon } from "@talkjs/react-components";
-/** @import { ChatSearchBoxProps } from "@talkjs/react-components"; */
+import { html, SearchInput, Icon } from "@talkjs/web-components";
+/** @import { ChatSearchBoxProps } from "@talkjs/web-components"; */
 
 /** @param {ChatSearchBoxProps} props */
 export function ChatSearchBox(props) {

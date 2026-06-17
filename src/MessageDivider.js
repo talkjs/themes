@@ -1,5 +1,5 @@
-import { html, userFriendlyDate } from "@talkjs/react-components";
-/** @import { MessageDividerProps } from "@talkjs/react-components"; */
+import { html, userFriendlyDate } from "@talkjs/web-components";
+/** @import { MessageDividerProps } from "@talkjs/web-components"; */
 
 /** @param {MessageDividerProps} props */
 export function MessageDivider(props) {

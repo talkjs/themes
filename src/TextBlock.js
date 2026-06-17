@@ -1,5 +1,5 @@
-import { html, Text } from "@talkjs/react-components";
-/** @import { TextBlockProps } from "@talkjs/react-components"; */
+import { html, Text } from "@talkjs/web-components";
+/** @import { TextBlockProps } from "@talkjs/web-components"; */
 
 /** @param {TextBlockProps} props */
 export function TextBlock({ block, message }) {

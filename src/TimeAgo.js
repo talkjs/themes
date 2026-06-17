@@ -1,5 +1,5 @@
-import { html, useTimeAgo } from "@talkjs/react-components";
-/** @import { TimeAgoProps } from "@talkjs/react-components"; */
+import { html, useTimeAgo } from "@talkjs/web-components";
+/** @import { TimeAgoProps } from "@talkjs/web-components"; */
 
 /** @param {TimeAgoProps} props */
 export function TimeAgo(props) {
