@@ -1,0 +1,165 @@
+.t-theme-conversation-list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: auto;
+  min-height: 65px;
+  padding: 12px;
+  overflow: hidden;
+
+  color: var(--t-color-text);
+  text-decoration: none;
+  text-align: initial;
+  overflow-wrap: break-word;
+
+  background-color: var(--t-color-bg);
+  border: none;
+  border-bottom: 1px solid var(--t-color-border);
+
+  transition:
+    color 0.1s ease-in-out,
+    background-color 0.1s ease-in-out;
+}
+
+.t-theme-conversation-list-item a {
+  color: var(--t-color-text);
+}
+
+.t-theme-conversation-list-item:last-child {
+  margin-bottom: 0;
+}
+
+.t-theme-conversation-list-item:hover {
+  cursor: pointer;
+  background-color: var(--t-color-bg-subtle);
+}
+
+.t-theme-conversation-list-item:focus-visible {
+  outline: var(--t-color-focus-ring) 2px solid;
+  outline-offset: -2px;
+}
+
+.t-theme-conversation-list-item[t-selected] {
+  color: var(--t-color-text-inverse);
+  background-color: var(--t-color-brand-primary);
+  /* This fixes a Safari repaint bug that occurs when you perform a search, and then stop searching, going back to the conversation list */
+  transform: translateZ(0);
+}
+
+.t-theme-conversation-list-item[t-selected] a {
+  color: var(--t-color-text-inverse);
+}
+
+.t-theme-conversation-list-item[t-selected]:focus-visible {
+  outline: var(--t-color-bg) 2px solid;
+  outline-offset: -4px;
+  border-bottom: 0;
+}
+
+.t-theme-conversation-list-item[t-unread] {
+  color: var(--t-color-text);
+}
+
+.t-theme-conversation-list-item[t-selected][t-unread] {
+  color: var(--t-color-text-inverse);
+  background-color: var(--t-color-brand-primary);
+}
+
+.t-theme-conversation-list-item .t-inner {
+  flex-basis: 0;
+  flex-grow: 1;
+  min-width: 0;
+  margin-left: 10px;
+}
+
+.t-theme-conversation-list-item .t-header,
+.t-theme-conversation-list-item .t-body {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.t-theme-conversation-list-item .t-message-sender {
+  margin: 0;
+}
+
+.t-theme-conversation-list-item .t-timestamp,
+.t-theme-conversation-list-item .t-unread-dot {
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+.t-theme-conversation-list-item .t-timestamp {
+  color: var(--t-color-text-muted);
+  font-size: var(--t-font-size-xs);
+}
+
+.t-theme-conversation-list-item .t-conversation-name,
+.t-theme-conversation-list-item .t-message {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.t-theme-conversation-list-item .t-conversation-name {
+  font-size: var(--t-font-size-sm);
+  font-weight: var(--t-font-weight-semibold);
+}
+
+.t-theme-conversation-list-item .t-message {
+  flex-basis: 0;
+  color: var(--t-color-text-muted);
+  font-size: var(--t-font-size-xs);
+}
+
+.t-theme-conversation-list-item .t-unread-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  padding: 3px 4px;
+  border-radius: var(--t-radius-sm);
+
+  color: var(--t-color-bg);
+  background-color: var(--t-color-brand-primary);
+
+  font-size: var(--t-font-size-xs);
+  line-height: 1;
+  text-align: center;
+}
+
+.t-theme-conversation-list-item .t-unread-dot:empty {
+  min-width: 10px;
+  min-height: 10px;
+  padding: 0;
+  border-radius: var(--t-radius-full);
+}
+
+.t-theme-conversation-list-item .t-unread-generic-dot {
+  padding: 0.6ex;
+  transform: scale(0.999);
+  border-radius: var(--t-radius-full);
+  background-color: var(--t-color-brand-primary);
+}
+
+.t-theme-conversation-list-item[t-selected] .t-unread-dot,
+.t-theme-conversation-list-item[t-selected] .t-unread-generic-dot {
+  color: var(--t-color-brand-primary);
+  background-color: var(--t-color-bg);
+}
+
+.t-theme-conversation-list-item[t-selected] .t-timestamp,
+.t-theme-conversation-list-item[t-selected] .t-message {
+  color: var(--t-color-text-inverse-muted);
+}
+
+[t-mobile-inbox] .t-theme-conversation-list-item {
+  transition:
+    color 0.4s ease-out,
+    background-color 0.4s ease-out;
+}

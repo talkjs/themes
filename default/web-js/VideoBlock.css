@@ -1,0 +1,93 @@
+.t-theme-video-block {
+  display: contents;
+}
+
+.t-theme-video-block .t-download-icon {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.2em;
+}
+
+.t-video-wrapper {
+  display: block;
+  min-height: 40px;
+  max-height: 400px;
+  height: auto;
+}
+
+.t-theme-video-block .t-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: inherit;
+  max-height: inherit;
+  margin: 4px 0 0.5em;
+  overflow: hidden;
+  aspect-ratio: var(--video-w) / var(--video-h);
+  border-radius: var(--t-radius-md);
+  box-sizing: border-box;
+}
+
+.t-theme-video-block .t-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: var(--t-video-overlay-bg);
+}
+
+.t-theme-video-block .t-metadata {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  min-width: 0;
+  margin: 4px 0;
+  color: var(--t-color-text);
+  font-size: var(--t-font-size-xs);
+  line-height: 1em;
+}
+
+.t-theme-message[t-sender="currentUser"] .t-theme-video-block .t-metadata {
+  color: var(--t-attachment-meta-fg-on-outgoing);
+}
+
+.t-theme-video-block .t-metadata a {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  gap: 0.25em;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  transition:
+    color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    text-decoration 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.t-theme-video-block .t-metadata a:hover {
+  opacity: 0.7;
+  text-decoration-line: none;
+}
+
+.t-theme-video-block .t-download-icon,
+.t-theme-video-block .t-filesize {
+  flex: 0 0 auto;
+}
+
+.t-theme-video-block .t-filename {
+  display: block;
+  min-width: 0;
+  max-width: 24ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.t-theme-video-block .t-filesize {
+  font-size: var(--t-font-size-xs);
+  white-space: nowrap;
+}

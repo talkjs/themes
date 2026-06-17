@@ -1,0 +1,17 @@
+.t-no-conversation-selected {
+  display: none;
+}
+
+.t-inbox .t-no-conversation-selected,
+t-inbox .t-no-conversation-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  color: var(--t-color-text-muted);
+  font-size: var(--t-font-size-sm);
+  line-height: var(--t-line-height-base);
+  text-align: center;
+}

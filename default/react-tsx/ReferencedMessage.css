@@ -1,0 +1,64 @@
+.t-theme-referenced-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 4px;
+  padding: 6px 10px 6px 6px;
+  border-radius: var(--t-radius-md);
+}
+
+.t-theme-referenced-message .t-accent-bar {
+  width: 2px;
+  align-self: stretch;
+  flex-shrink: 0;
+  border-radius: var(--t-radius-xs);
+}
+
+.t-theme-referenced-message .t-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.t-theme-referenced-message .t-sender-name {
+  font-size: var(--t-font-size-xs);
+  font-weight: var(--t-font-weight-medium);
+}
+
+.t-theme-referenced-message .t-content {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.t-theme-referenced-message .t-content a {
+  color: currentColor;
+}
+
+/* "Other" sender styles */
+.t-theme-message[t-sender="other"] .t-theme-referenced-message {
+  background-color: var(--t-color-bg);
+}
+
+.t-theme-message[t-sender="other"] .t-theme-referenced-message .t-accent-bar {
+  background-color: var(--t-color-text-muted);
+}
+
+.t-theme-message[t-sender="other"] .t-theme-referenced-message .t-sender-name {
+  color: var(--t-color-text-muted);
+}
+
+/* "Current user" sender styles */
+.t-theme-message[t-sender="currentUser"] .t-theme-referenced-message {
+  background-color: var(--t-color-black-15);
+}
+
+.t-theme-message[t-sender="currentUser"] .t-theme-referenced-message .t-accent-bar {
+  background-color: var(--t-color-text-inverse-muted);
+}
+
+.t-theme-message[t-sender="currentUser"] .t-theme-referenced-message .t-sender-name {
+  color: var(--t-color-text-inverse-muted);
+}

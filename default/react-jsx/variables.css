@@ -1,0 +1,124 @@
+.t-chatbox,
+t-chatbox,
+.t-conversation-list,
+t-conversation-list {
+  /* =========================
+   * Primitive tokens
+   * ========================= */
+
+  /* Neutral palette */
+  --t-color-white: rgb(255 255 255);
+  --t-color-black: rgb(0 0 0);
+
+  --t-color-gray-100: rgb(250 250 250);
+  --t-color-gray-200: rgb(242 242 242);
+  --t-color-gray-300: rgb(235 235 235);
+  --t-color-gray-400: rgb(201 201 201);
+  --t-color-gray-500: rgb(168 168 168);
+  --t-color-gray-600: rgb(143 143 143);
+  --t-color-gray-700: rgb(125 125 125);
+  --t-color-gray-800: rgb(102 102 102);
+  --t-color-gray-900: rgb(23 23 23);
+
+  /* Brand palette */
+  --t-color-blue-50: rgb(239 246 255);
+  --t-color-blue-100: rgb(219 234 254);
+  --t-color-blue-200: rgb(191 219 254);
+  --t-color-blue-300: rgb(147 197 253);
+  --t-color-blue-400: rgb(96 165 250);
+  --t-color-blue-500: rgb(59 130 246);
+  --t-color-blue-600: rgb(37 99 235);
+  --t-color-blue-700: rgb(29 78 216);
+  --t-color-blue-800: rgb(30 64 175);
+  --t-color-blue-900: rgb(30 58 138);
+
+  /* Danger palette */
+  --t-color-red-50: rgb(255 241 242);
+  --t-color-red-600: rgb(225 29 72);
+  --t-color-red-800: rgb(159 18 57);
+
+  /* Utility colors */
+  --t-color-green-500: rgb(34 197 94);
+
+  /* Overlay / alpha primitives */
+  --t-color-black-15: rgb(0 0 0 / 0.15);
+  --t-color-focus-ring-soft: rgb(0 125 249 / 0.5);
+  --t-color-offline-ring: rgb(50 50 50 / 0.4);
+
+  /* Radius */
+  --t-radius-xs: 0.125em;
+  --t-radius-sm: 0.25em;
+  --t-radius-md: 0.375em;
+  --t-radius-lg: 0.5em;
+  --t-radius-xl: 0.75em;
+  --t-radius-full: 9999px;
+
+  /* Typography */
+  --t-font-size-xs: 12px;
+  --t-font-size-sm: 14px;
+  --t-font-size-base: 16px;
+  --t-font-size-lg: 18px;
+  --t-line-height-base: 1.375;
+
+  --t-font-weight-normal: 400;
+  --t-font-weight-medium: 500;
+  --t-font-weight-semibold: 600;
+  --t-font-weight-bold: 700;
+
+  /* =========================
+   * Semantic theme tokens
+   * ========================= */
+
+  /* Surfaces */
+  --t-color-bg: var(--t-color-white);
+  --t-color-bg-muted: var(--t-color-gray-200);
+  --t-color-bg-subtle: var(--t-color-gray-100);
+  --t-color-bg-inverse: var(--t-color-gray-900);
+
+  /* Text */
+  --t-color-text: var(--t-color-gray-900);
+  --t-color-text-muted: var(--t-color-gray-700);
+  --t-color-text-disabled: var(--t-color-gray-600);
+  --t-color-text-inverse: var(--t-color-white);
+  --t-color-text-inverse-muted: rgb(255 255 255 / 0.8);
+
+  /* Borders */
+  --t-color-border: var(--t-color-gray-300);
+  --t-color-border-strong: var(--t-color-gray-400);
+  --t-color-border-focus: var(--t-color-gray-800);
+
+  /* Brand */
+  --t-color-brand-primary: var(--t-color-blue-600);
+  --t-color-brand-primary-hover: var(--t-color-blue-900);
+  --t-color-brand-primary-active: var(--t-color-blue-700);
+  --t-color-brand-primary-fg: var(--t-color-white);
+  --t-color-brand-muted: var(--t-color-blue-300);
+  --t-color-brand-dark: var(--t-color-blue-800);
+  --t-color-brand-light: var(--t-color-blue-400);
+
+  /* Status / feedback */
+  --t-color-success: var(--t-color-green-500);
+  --t-color-danger: var(--t-color-red-600);
+  --t-color-danger-hover: var(--t-color-red-800);
+  --t-color-danger-subtle: var(--t-color-red-50);
+
+  /* Focus */
+  --t-color-focus-ring: var(--t-color-brand-muted);
+  --t-color-focus-ring-strong: var(--t-color-focus-ring-soft);
+
+  /* =========================
+   * Component tokens
+   * ========================= */
+
+  /* Mentions */
+  --t-msg-mention-outgoing-bg: rgb(255 255 255 / 0.2);
+  --t-msg-mention-current-user-outgoing-bg: rgb(255 255 255 / 0.4);
+  --t-msg-mention-incoming-bg: rgb(220 220 220 / 0.5);
+  --t-msg-mention-current-user-incoming-bg: rgb(220 220 220 / 0.9);
+
+  /* Attachments */
+  --t-video-overlay-bg: rgb(0 0 0 / 0.85);
+
+  /* Header */
+  --t-chat-header-presence-online: var(--t-color-green-500);
+}

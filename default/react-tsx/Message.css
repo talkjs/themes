@@ -1,0 +1,543 @@
+.t-theme-message {
+  display: grid;
+  align-self: start;
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+
+  margin-top: 4px;
+  row-gap: 4px;
+  column-gap: 0.625em;
+  align-items: start;
+
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    ".      sender  sender"
+    "avatar message actions"
+    "avatar status  .";
+}
+
+.t-theme-message[t-sender="currentUser"] {
+  align-self: end;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "actions message avatar"
+    "status  status  avatar";
+}
+
+.t-theme-message[t-sender="system"] {
+  display: grid;
+  width: 100%;
+  margin-top: 0.625em;
+  overflow: hidden;
+  white-space: pre-wrap;
+
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "message"
+    "status";
+}
+
+/* 
+  Messages are rendered in reverse order, and then the order is flipped
+  because of flex-direction: column-reverse; so the last message in a group
+  is actually the first one.
+  We group messages by sender, so the last child is the first message in a
+  sequence by that sender.
+*/
+
+/* Add some space between messages by different senders */
+.t-theme-message:last-child {
+  margin-top: 0.625em;
+}
+
+/* Hide the sender name for any message after the first one by this sender */
+.t-theme-message:not(:last-child) .t-message-sender-name {
+  display: none;
+}
+
+.t-theme-message .t-message-sender-name {
+  grid-area: sender;
+  font-size: 0.875em;
+  max-width: min(100%, 70ch);
+  font-weight: var(--t-font-weight-bold);
+}
+
+/* Hide the avatar for any message after the first one */
+.t-theme-message:not(:last-child) .t-theme-avatar {
+  visibility: hidden;
+}
+
+.t-theme-message[t-sender="system"] + .t-theme-message[t-sender="system"] {
+  margin-top: 0.25em;
+}
+
+/* Zero-height wrapper so the avatar doesn't increase the grid row height.
+   Consecutive messages by the same sender hide their avatar, so the first
+   message's avatar can safely overflow into that space below, letting the
+   messages sit closer together. */
+.t-theme-message > .t-avatar-wrapper {
+  grid-area: avatar;
+  width: fit-content;
+  height: 0;
+  overflow: visible;
+}
+
+.t-theme-message > .t-avatar-wrapper > .t-theme-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.t-theme-message > .t-message-buttons {
+  display: flex;
+  grid-area: actions;
+  align-self: center;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.t-theme-message[t-sender="currentUser"] > .t-message-buttons {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.t-theme-message .t-message-buttons > button {
+  align-self: center;
+  width: calc(20px + 0.25em * 2);
+  height: calc(20px + 0.25em * 2);
+  padding: 0.25em;
+  border: 0;
+  border-radius: var(--t-radius-full);
+  color: var(--t-color-text-muted);
+  background: inherit;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.t-theme-message .t-message-buttons > button:hover,
+.t-theme-message .t-message-buttons > button:focus {
+  color: var(--t-color-text);
+}
+
+.t-theme-message .t-message-buttons > button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px var(--t-color-focus-ring-strong);
+}
+
+@media (hover: hover) {
+  .t-theme-message .t-message-buttons > button {
+    opacity: 0;
+  }
+
+  .t-theme-message:hover .t-message-buttons > button,
+  .t-theme-message:focus-within .t-message-buttons > button {
+    opacity: 1;
+  }
+}
+
+@media (hover: none) {
+  .t-theme-message .t-message-buttons > button {
+    opacity: 0.0001%;
+  }
+
+  .t-theme-message:hover .t-message-buttons > button,
+  .t-theme-message:focus-within .t-message-buttons > button {
+    opacity: 100%;
+  }
+}
+
+.t-theme-message .t-message-body {
+  display: inline-block;
+  position: relative;
+  align-self: center;
+  justify-self: end;
+
+  width: fit-content;
+  padding: 6px 10px;
+
+  overflow: visible;
+  white-space: normal;
+  overflow-wrap: break-word;
+
+  grid-area: message;
+  max-width: min(100%, 70ch);
+  background-color: var(--t-color-bg-muted);
+  color: var(--t-color-text);
+  border: none;
+  border-radius: var(--t-radius-lg);
+  font-size: var(--t-font-size-sm);
+}
+
+.t-theme-message[t-sender="currentUser"] .t-message-body {
+  background-color: var(--t-color-brand-primary);
+  color: var(--t-color-brand-primary-fg);
+  border: none;
+  border-radius: var(--t-radius-lg);
+}
+
+.t-theme-message[t-sender="system"] .t-message-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  width: 100%;
+  max-width: none;
+
+  background-color: var(--t-color-bg);
+  color: var(--t-color-text);
+  border: 1px solid var(--t-color-border-strong);
+  border-radius: var(--t-radius-lg);
+
+  line-height: var(--t-line-height-base);
+  font-size: var(--t-font-size-xs);
+}
+
+.t-theme-message
+  .t-message-body
+  .t-text.t-emoji-only:is(
+    .t-emoji-count-1,
+    .t-emoji-count-2,
+    .t-emoji-count-3
+  ) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375em;
+  line-height: 1;
+}
+
+.t-theme-message
+  .t-message-body:has(
+    .t-text.t-emoji-only:is(
+        .t-emoji-count-1,
+        .t-emoji-count-2,
+        .t-emoji-count-3
+      )
+  ) {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.t-theme-message
+  .t-message-body
+  .t-text.t-emoji-only:is(.t-emoji-count-1, .t-emoji-count-2, .t-emoji-count-3)
+  .t-emoji {
+  width: auto;
+  height: auto;
+  margin: 0;
+  vertical-align: baseline;
+  font-size: 60px;
+  line-height: 1;
+}
+
+.sys-icon {
+  display: inline-flex;
+  margin-top: 1px;
+}
+
+.t-theme-message
+  .t-message-body:has(
+    .t-theme-audio-block,
+    .t-theme-voice-block,
+    .t-theme-location-block
+  ) {
+  width: 100%;
+}
+
+.t-theme-message .t-message-body .t-message-content {
+  display: contents;
+}
+
+.t-theme-message .t-message-body .t-theme-referenced-message {
+  margin-bottom: 0.25em;
+}
+
+.t-theme-message .t-message-content a {
+  color: currentColor;
+}
+
+.t-theme-message .t-message-status {
+  display: inline-flex;
+  grid-area: status;
+  max-width: min(100%, 70ch);
+  justify-self: end;
+  min-width: 3.5ch;
+  user-select: none;
+
+  color: var(--t-color-text-muted);
+  font-size: 0.75em;
+  text-align: right;
+}
+
+/* Hide the status for any messages except the last one
+   (so the first one in dom-order, they're displayed reversed) */
+.t-theme-message:not(:first-child) .t-message-status {
+  display: none;
+}
+
+/* Remove the status row for all but first child */
+.t-theme-message:not(:first-child) {
+  grid-template-rows: auto;
+  grid-template-areas: "avatar message actions";
+}
+
+.t-theme-message[t-sender="currentUser"]:not(:first-child) {
+  grid-template-rows: auto;
+  grid-template-areas: "actions message avatar";
+}
+
+/* For messages by others, sender row is opt-in and only shown when rendered */
+.t-theme-message[t-sender="other"] {
+  grid-template-rows: auto;
+  grid-template-areas: "avatar message actions";
+}
+
+.t-theme-message[t-sender="other"]:first-child {
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "avatar message actions"
+    "avatar status  .";
+}
+
+.t-theme-message[t-sender="other"]:last-child {
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    ".      sender  sender"
+    "avatar message actions";
+}
+
+.t-theme-message[t-sender="other"]:first-child:last-child {
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    ".      sender  sender"
+    "avatar message actions"
+    "avatar status  .";
+}
+
+.t-theme-message[t-sender="system"]:not(:first-child) {
+  grid-template-rows: auto;
+  grid-template-areas: "message";
+}
+
+/* Pull action buttons up so grouped messages sit visually closer */
+.t-theme-message:not(:first-child) > .t-message-buttons {
+  margin-top: -4px;
+}
+
+.t-theme-message .t-message-loading-spinner {
+  width: 1em;
+  height: 1em;
+  animation: spin 1.2s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+}
+
+.t-theme-message .t-status-icon {
+  min-width: 1em;
+  margin-left: 0.25em;
+}
+
+.t-theme-message .t-status-icon[t-status="everyoneRead"] {
+  color: var(--t-color-brand-primary);
+}
+
+.t-theme-message .t-status-icon svg:not(:first-child) {
+  margin-left: -0.825em;
+}
+
+.t-theme-message button[t-action] {
+  margin: 1px 0;
+  padding: 0.25em 0.325em;
+  border-radius: var(--t-radius-md);
+  font-size: inherit;
+  cursor: pointer;
+  transition:
+    color 200ms ease-in-out,
+    background-color 200ms ease-in-out,
+    border-color 200ms ease-in-out;
+}
+
+.t-theme-message:is([t-sender="currentUser"], [t-sender="system"])
+  button[t-action] {
+  color: var(--t-color-text-inverse);
+  background-color: var(--t-color-brand-primary);
+  border: 1px solid var(--t-color-brand-primary);
+}
+
+.t-theme-message:is([t-sender="currentUser"], [t-sender="system"])
+  button[t-action]:hover {
+  color: var(--t-color-text-inverse);
+  background-color: var(--t-color-brand-primary-hover);
+  border-color: var(--t-color-brand-primary-hover);
+}
+
+.t-theme-message:is([t-sender="currentUser"], [t-sender="system"])
+  button[t-action]:active {
+  color: var(--t-color-text-inverse);
+  background-color: var(--t-color-brand-primary-active);
+  border-color: var(--t-color-brand-primary-active);
+}
+
+.t-theme-message:is([t-sender="currentUser"], [t-sender="system"])
+  button[t-action]:focus-visible {
+  outline: var(--t-color-brand-primary) solid 2px;
+  outline-offset: 2px;
+}
+
+.t-theme-message[t-sender="other"] button[t-action] {
+  color: var(--t-color-text);
+  background-color: transparent;
+  border: 1px solid var(--t-color-border-focus);
+}
+
+.t-theme-message[t-sender="other"] button[t-action]:hover {
+  color: var(--t-color-text-inverse);
+  background-color: var(--t-color-text);
+  border-color: var(--t-color-text);
+}
+
+.t-theme-message[t-sender="other"] button[t-action]:active {
+  color: var(--t-color-text-inverse);
+  background-color: var(--t-color-border-focus);
+  border-color: var(--t-color-border-focus);
+}
+
+.t-theme-message[t-sender="other"] button[t-action]:focus-visible {
+  outline: var(--t-color-border-focus) solid 2px;
+  outline-offset: 2px;
+}
+
+.t-theme-message .t-reactions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+  margin-top: 0.25em;
+}
+
+.t-theme-message[t-sender="currentUser"] .t-reactions {
+  justify-content: flex-end;
+  margin-right: 0.75em;
+}
+
+.t-theme-message[t-sender="other"] .t-reactions {
+  margin-left: 3.75em;
+}
+
+.t-theme-message .t-emoji-reactions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 0.25em;
+}
+
+.t-theme-message .t-reaction-button {
+  display: flex;
+  align-items: center;
+  margin: 4px 0 0;
+  padding: 2px 6px;
+  border: 1px solid transparent;
+  border-radius: var(--t-radius-full);
+  background-color: var(--t-color-bg);
+  color: var(--t-color-text);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Let hover hit the button so Tooltip can read `t-tooltip-text` on it */
+.t-theme-message .t-reaction-button > * {
+  pointer-events: none;
+}
+
+.t-theme-message[t-sender="currentUser"] .t-reaction-button {
+  color: var(--t-color-text-inverse);
+  background-color: var(--t-color-brand-dark);
+  border-color: transparent;
+}
+
+.t-theme-message .t-reaction-button[t-active] {
+  color: var(--t-color-text-inverse);
+  background-color: var(--t-color-brand-primary);
+}
+
+.t-theme-message .t-reaction-button[t-active]:hover {
+  border-color: transparent;
+}
+
+.t-theme-message[t-sender="currentUser"] .t-reaction-button[t-active] {
+  color: var(--t-color-text-inverse);
+  background-color: var(--t-color-brand-light);
+  border-color: transparent;
+}
+
+.t-theme-message .t-reaction-button span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.t-theme-message .t-reaction-button .t-emoji {
+  font-size: var(--t-font-size-sm);
+}
+
+.t-theme-message .t-reaction-button .t-num-reactions {
+  padding-left: 0.25em;
+  font-size: var(--t-font-size-xs);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.075em;
+}
+
+.t-theme-message .t-reaction-picker {
+  width: 300px;
+  height: 200px;
+  margin: 0 10px;
+  overflow: hidden;
+  border: 1px solid var(--t-color-border-strong);
+  border-radius: var(--t-radius-md);
+}
+
+.t-theme-message .t-mention {
+  margin: 0;
+  padding: 2px 6px;
+  border-radius: var(--t-radius-full);
+  line-height: 1.5;
+  color: inherit;
+  font-weight: var(--t-font-weight-medium);
+}
+
+.t-theme-message[t-sender="currentUser"] .t-mention {
+  background-color: var(--t-msg-mention-outgoing-bg);
+}
+
+.t-theme-message[t-sender="currentUser"] .t-mention[t-is-current-user] {
+  background-color: var(--t-msg-mention-current-user-outgoing-bg);
+}
+
+.t-theme-message[t-sender="other"] .t-mention {
+  background-color: var(--t-msg-mention-incoming-bg);
+}
+
+.t-theme-message[t-sender="other"] .t-mention[t-is-current-user] {
+  background-color: var(--t-msg-mention-current-user-incoming-bg);
+}
+
+.t-theme-message[t-status="sending"] .t-message-action-menu-button,
+.t-theme-message[t-status="sending"] .t-add-reaction-button {
+  visibility: hidden;
+}
+
+@keyframes focus-animation {
+  0% {
+    background-color: rgba(0, 125, 249, 1);
+  }
+
+  100% {
+    background-color: rgba(0, 125, 249, 0);
+  }
+}
+
+.t-theme-message[t-focused] {
+  animation: focus-animation 3s cubic-bezier(0, 0.77, 0.57, 1);
+}

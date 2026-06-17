@@ -1,0 +1,59 @@
+.t-theme-recording-preview {
+  display: contents;
+}
+
+.t-theme-recording-preview .t-close-button {
+  align-self: center;
+}
+
+.t-theme-recording-preview .t-textbox-column {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.625em;
+  height: auto;
+  padding: 0 0.5rem 0 0;
+  overflow: hidden;
+  background-color: transparent;
+  border-top: 1px solid transparent;
+}
+
+.t-theme-recording-preview .t-duration,
+.t-audio-player .t-playback-speed {
+  font-size: var(--t-font-size-sm);
+}
+
+.t-theme-recording-preview .t-audio-player {
+  height: auto;
+  padding: 0;
+}
+
+.t-theme-recording-preview .t-play-pause-icon {
+  color: var(--t-color-bg-muted);
+}
+
+.t-theme-recording-preview .t-loading {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.t-theme-recording-preview .t-spinner {
+  animation: t-recording-preview-spin 2000ms linear infinite;
+}
+
+@keyframes t-recording-preview-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.t-theme-recording-preview .t-error-msg {
+  color: var(--t-color-danger);
+  white-space: normal;
+}

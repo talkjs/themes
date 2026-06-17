@@ -1,0 +1,77 @@
+.t-theme-audio-block {
+  display: contents;
+}
+
+.t-theme-audio-block .t-audio-player {
+  margin: 6px 0 0;
+}
+
+.t-theme-audio-block .t-download-icon {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.2em;
+}
+
+.t-theme-audio-block .t-metadata {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  min-width: 0;
+  margin: 4px 0;
+  color: var(--t-color-text);
+  font-size: var(--t-font-size-xs);
+  line-height: 1em;
+}
+
+.t-theme-audio-block .t-metadata a {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  gap: 0.25em;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  transition:
+    color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    text-decoration 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.t-theme-audio-block .t-metadata a:hover {
+  opacity: 0.7;
+  text-decoration-line: none;
+}
+
+.t-theme-audio-block .t-metadata a .t-download-icon,
+.t-theme-audio-block .t-filesize {
+  flex: 0 0 auto;
+}
+
+.t-theme-audio-block .t-filename {
+  display: block;
+  min-width: 0;
+  max-width: 24ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.t-theme-audio-block .t-filesize {
+  white-space: nowrap;
+}
+
+.t-theme-message[t-sender="currentUser"] .t-theme-audio-block .t-metadata {
+  color: var(--t-attachment-meta-fg-on-outgoing);
+}
+
+.t-theme-message[t-sender="other"] .t-theme-audio-block .t-play-pause-icon {
+  color: var(--t-color-bg-muted);
+}
+
+.t-theme-message[t-sender="currentUser"] .t-theme-audio-block .t-play-pause-icon {
+  color: var(--t-color-brand-primary);
+}
+
+.t-theme-message[t-sender="system"] .t-theme-audio-block .t-play-pause-icon {
+  color: var(--t-color-bg);
+}

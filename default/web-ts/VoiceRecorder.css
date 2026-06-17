@@ -1,0 +1,54 @@
+.t-theme-voice-recorder {
+  display: contents;
+}
+
+.t-theme-voice-recorder .t-close-button {
+  align-self: center;
+}
+
+.t-theme-voice-recorder .t-textbox-column {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.625em;
+  height: auto;
+  padding: 7px 12px 8px;
+  overflow: hidden;
+
+  background-color: transparent;
+  border: 1px solid var(--t-color-border-strong);
+  border-radius: var(--t-radius-sm);
+}
+
+.t-theme-voice-recorder .t-waveform {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.t-theme-voice-recorder .t-duration {
+  font-size: var(--t-font-size-sm);
+}
+
+.t-theme-voice-recorder .t-stop-button {
+  width: 2.571em;
+  height: 2.571em;
+  padding: 0.571em;
+
+  color: var(--t-color-bg);
+  background-color: var(--t-color-danger);
+  border: 1px solid var(--t-color-danger);
+  border-radius: var(--t-radius-sm);
+  transition: 150ms ease-out;
+}
+
+.t-theme-voice-recorder .t-stop-button:not(:disabled):hover,
+.t-theme-voice-recorder .t-stop-button:not(:disabled):focus {
+  color: var(--t-color-bg);
+  background-color: var(--t-color-danger-hover);
+  border-color: var(--t-color-danger-hover);
+}

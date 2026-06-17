@@ -1,0 +1,68 @@
+.t-theme-file-block {
+  display: contents;
+}
+
+.t-theme-file-block .t-attachment-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.t-theme-file-block .t-metadata {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  min-width: 0;
+  margin: 4px 0;
+  color: var(--t-color-text);
+  font-size: var(--t-font-size-xs);
+  line-height: 1em;
+}
+
+.t-theme-file-block .t-metadata a {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+  gap: 0.25em;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  transition:
+    color 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    text-decoration 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.t-theme-file-block .t-metadata a:hover {
+  opacity: 0.7;
+  text-decoration-line: none;
+}
+
+.t-theme-file-block .t-metadata a .t-attachment-icon,
+.t-theme-file-block .t-filesize {
+  flex: 0 0 auto;
+}
+
+.t-theme-file-block .t-metadata a span {
+  display: block;
+  min-width: 0;
+  max-width: 24ch;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.t-theme-file-block .t-filesize {
+  white-space: nowrap;
+}
+
+.t-theme-message[t-sender="currentUser"] .t-theme-file-block .t-metadata {
+  color: var(--t-attachment-meta-fg-on-outgoing);
+}
+
+.t-theme-file-block .t-loading-spinner {
+  display: block;
+  width: 4em;
+  height: 4em;
+  margin: auto;
+  animation: spin 1.2s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+}

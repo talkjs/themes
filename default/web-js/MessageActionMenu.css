@@ -1,0 +1,97 @@
+.t-theme-message-action-menu {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  padding: 0.25em;
+
+  background-color: var(--t-color-bg);
+  border: 1px solid var(--t-color-border);
+  border-radius: var(--t-radius-sm);
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+}
+
+.t-theme-message-action-menu .t-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  width: 100%;
+  padding: 0.375em;
+
+  background: none;
+  border: none;
+  border-radius: var(--t-radius-xs);
+
+  color: var(--t-color-text);
+  font-size: var(--t-font-size-xs);
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    background-color 120ms ease-out,
+    color 120ms ease-out;
+}
+
+.t-theme-message-action-menu .t-menu-item:hover,
+.t-theme-message-action-menu .t-menu-item:focus {
+  background-color: var(--t-color-bg-muted);
+  color: var(--t-color-text);
+  outline: none;
+}
+
+.t-theme-message-action-menu .t-menu-item.t-danger {
+  color: var(--t-color-danger);
+}
+
+.t-theme-message-action-menu .t-menu-item.t-danger:hover,
+.t-theme-message-action-menu .t-menu-item.t-danger:focus {
+  background-color: var(--t-color-danger-subtle);
+  color: var(--t-color-danger-hover);
+  outline: none;
+}
+
+.t-theme-message-action-menu .t-menu-item-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+  flex-shrink: 0;
+  border: 1px solid var(--t-color-border-strong);
+  border-radius: var(--t-radius-xs);
+
+  transition:
+    background-color 120ms ease-out,
+    border-color 120ms ease-out;
+}
+
+.t-theme-message-action-menu .t-menu-item-icon {
+  color: var(--t-color-text);
+  transition: color 120ms ease-out;
+}
+
+.t-theme-message-action-menu .t-menu-item:hover .t-menu-item-icon-box,
+.t-theme-message-action-menu .t-menu-item:focus .t-menu-item-icon-box {
+  background-color: var(--t-color-text);
+  border-color: var(--t-color-text);
+}
+
+.t-theme-message-action-menu .t-menu-item:hover .t-menu-item-icon,
+.t-theme-message-action-menu .t-menu-item:focus .t-menu-item-icon {
+  color: var(--t-color-white);
+}
+
+.t-theme-message-action-menu .t-menu-item.t-danger .t-menu-item-icon {
+  color: var(--t-color-danger);
+}
+
+.t-theme-message-action-menu .t-menu-item.t-danger:hover .t-menu-item-icon-box,
+.t-theme-message-action-menu .t-menu-item.t-danger:focus .t-menu-item-icon-box {
+  background-color: var(--t-color-danger);
+  border-color: var(--t-color-danger);
+}
+
+.t-theme-message-action-menu .t-menu-item.t-danger:hover .t-menu-item-icon,
+.t-theme-message-action-menu .t-menu-item.t-danger:focus .t-menu-item-icon {
+  color: var(--t-color-white);
+}

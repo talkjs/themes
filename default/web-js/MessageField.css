@@ -1,0 +1,357 @@
+.t-theme-message-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.t-theme-message-field[t-mode="send"] {
+  /* cap height for when the emoji picker is expanded and the chatbox is small */
+  max-height: calc(100% - 100px);
+}
+
+.t-theme-message-field[t-mode="edit"] {
+  margin: 0.75em 0;
+}
+
+.t-theme-message-field .t-wrapper {
+  flex-shrink: 0;
+  position: relative;
+  padding: 12px;
+  color: var(--t-color-text);
+  font-size: var(--t-font-size-base);
+  background-color: var(--t-color-bg);
+  border-top: 1px solid var(--t-color-border);
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.t-theme-message-field[t-mode="edit"] .t-wrapper {
+  border: 1px solid var(--t-color-border);
+  border-radius: var(--t-radius-md);
+}
+
+.t-theme-message-field .t-emoji-suggest-bar {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  overflow: auto hidden;
+  overscroll-behavior: contain;
+  height: 60px;
+  margin-top: -60px;
+  flex-shrink: 0;
+  align-items: center;
+  background-color: var(--t-color-bg);
+  border-top: 1px solid var(--t-color-border);
+  z-index: 1;
+}
+
+.t-theme-message-field .t-emoji-suggest-bar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: 1.375rem;
+  width: calc(1.375rem + 2 * 0.5rem);
+  height: calc(1.375rem + 2 * 0.5rem);
+  padding: 0 4px;
+  border-radius: var(--t-radius-sm);
+}
+
+.t-theme-message-field .t-emoji-suggest-bar button[t-focused] {
+  background-color: var(--t-color-bg-muted);
+}
+
+.t-theme-message-field[t-mode="edit"] .t-emoji-suggest-bar {
+  border: 1px solid var(--t-color-border);
+  border-radius: var(--t-radius-md) var(--t-radius-md) 0 0;
+}
+
+.t-theme-message-field[t-mode="edit"]:has(.t-emoji-suggest-bar) .t-wrapper {
+  border-radius: 0 0 var(--t-radius-md) var(--t-radius-md);
+  border-top: none;
+}
+
+.t-theme-message-field .t-mention-suggest-list {
+  width: auto;
+  max-width: 100%;
+  max-height: 150px;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  background-color: var(--t-color-bg);
+  border: 1px solid var(--t-color-border);
+  border-radius: var(--t-radius-sm);
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+  padding: 0.25em;
+}
+
+.t-theme-message-field .t-mention-suggest-list button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0.375em;
+  font-size: var(--t-font-size-xs);
+  line-height: 1.25;
+  color: var(--t-color-text);
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: var(--t-radius-xs);
+  text-align: left;
+  white-space: nowrap;
+  transition:
+    background-color 120ms ease-out,
+    color 120ms ease-out;
+}
+
+.t-theme-message-field .t-mention-suggest-list button:hover,
+.t-theme-message-field .t-mention-suggest-list button:focus,
+.t-theme-message-field .t-mention-suggest-list button.focused {
+  background-color: var(--t-color-bg-muted);
+  color: var(--t-color-text);
+  outline: none;
+}
+
+.t-theme-message-field .t-edit-row {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* Shared button base */
+.t-theme-message-field .t-edit-row button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--t-radius-sm);
+  font-size: var(--t-font-size-sm);
+  font-weight: var(--t-font-weight-medium);
+  line-height: 1;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transform: translateZ(0);
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    transform 80ms ease;
+}
+
+.t-theme-message-field .t-edit-row button:focus-visible {
+  outline: 2px solid var(--t-color-brand-primary);
+  outline-offset: 2px;
+}
+
+.t-theme-message-field .t-edit-row button:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+/* Secondary */
+.t-theme-message-field .t-edit-row button {
+  background: var(--t-color-bg);
+  border: 1px solid var(--t-color-gray-600);
+  color: var(--t-color-text);
+}
+
+.t-theme-message-field .t-edit-row button:not(:disabled):hover {
+  background: var(--t-color-bg-muted);
+}
+
+/* Primary */
+.t-theme-message-field .t-edit-row button[t-action="save"] {
+  background: var(--t-color-brand-primary);
+  color: var(--t-color-brand-primary-fg);
+  border-color: var(--t-color-brand-primary);
+}
+
+.t-theme-message-field
+  .t-edit-row
+  button[t-action="save"]:not(:disabled):hover {
+  background: var(--t-color-brand-primary-hover);
+  border-color: var(--t-color-brand-primary-hover);
+}
+
+/* Disabled */
+.t-theme-message-field .t-edit-row button:disabled,
+.t-theme-message-field .t-edit-row button[t-action="save"]:disabled {
+  opacity: 1;
+  background: var(--t-color-border);
+  border-color: var(--t-color-border);
+  color: var(--t-color-text-disabled);
+  pointer-events: none;
+}
+
+.t-theme-message-field .t-text-form {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.t-theme-message-field[t-mode="edit"] .t-text-form {
+  flex-direction: column;
+}
+
+.t-theme-message-field .t-editor .t-text-input {
+  border-radius: var(--t-radius-sm);
+  border: 1px solid var(--t-color-border-strong);
+  height: auto;
+  max-height: 9em;
+  background-color: transparent;
+  display: block;
+  resize: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  word-break: break-word;
+  white-space: pre-wrap;
+  padding: 9px 40px 9px 12px; /* 40px of space for the emoji picker button */
+  transition: box-shadow 150ms ease-out;
+}
+
+.t-theme-message-field .t-editor .t-text-input:focus {
+  border-color: var(--t-color-border-focus);
+  outline: none;
+}
+
+.t-theme-message-field .t-editor .t-text-input:focus-visible {
+  border-color: var(--t-color-border-focus);
+  outline: 2px solid var(--t-color-border-strong);
+  outline-offset: 1px;
+}
+
+.t-theme-message-field .t-editor .t-text-input p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+.t-theme-message-field .t-editor .t-mention {
+  color: var(--t-color-brand-primary);
+}
+
+.t-theme-message-field .t-attachment-column,
+.t-theme-message-field .t-send-column {
+  flex-grow: 0;
+  flex-shrink: 0;
+  white-space: nowrap;
+  align-self: flex-end;
+  display: flex;
+}
+
+.t-theme-message-field .t-textbox-column {
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.t-theme-message-field .t-send-button:focus-visible {
+  outline: 2px solid var(--t-color-focus-ring-strong);
+  outline-offset: 1px;
+}
+
+.t-theme-message-field .t-send-button {
+  display: flex;
+}
+
+.t-theme-message-field .t-send-button:disabled {
+  background: var(--t-color-border);
+  border-color: var(--t-color-border);
+  color: var(--t-color-text-disabled);
+  cursor: default;
+  pointer-events: none;
+}
+
+.t-theme-message-field .t-text-limit-indicator {
+  opacity: 0.5;
+  font-size: 75%;
+  margin: -0.75em 0 0.5em 2px;
+}
+
+.t-theme-message-field .t-readonly {
+  opacity: 0.5;
+  user-select: none;
+}
+
+.t-theme-message-field .t-button-overlay {
+  position: absolute;
+  right: 8px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  gap: 0;
+  align-items: center;
+}
+
+.t-theme-message-field [t-kind="icon-button"] {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--t-radius-full);
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  color: var(--t-color-text-muted);
+  transition: 150ms ease-out;
+}
+
+.t-theme-message-field [t-kind="icon-button"]:not(:disabled):hover,
+.t-theme-message-field [t-kind="icon-button"]:not(:disabled):focus {
+  color: currentColor;
+  opacity: 1;
+}
+
+.t-theme-message-field .t-send-button {
+  width: 2.571em;
+  height: 2.571em;
+  padding: 0.571em;
+}
+
+.t-theme-message-field .t-attachment-button {
+  height: 2.571em;
+  padding-block: 0.571em;
+}
+
+.t-theme-message-field .t-send-button {
+  border: 1px solid var(--t-color-brand-primary);
+  border-radius: var(--t-radius-sm);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: var(--t-color-brand-primary);
+  color: var(--t-color-text-inverse);
+  transition: 150ms ease-out;
+}
+
+.t-theme-message-field .t-send-button:not(:disabled):hover,
+.t-theme-message-field .t-send-button:not(:disabled):focus {
+  background-color: var(--t-color-brand-primary-hover);
+  border-color: var(--t-color-brand-primary-hover);
+  color: var(--t-color-text-inverse);
+}
+
+.t-theme-message-field [t-kind="icon-button"]:focus-visible {
+  outline: 2px solid var(--t-color-focus-ring);
+  outline-offset: 1px;
+}
+
+.t-theme-message-field .t-emoji-picker-wrapper {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  flex-shrink: 1;
+  border-top: 1px solid var(--t-color-border);
+}

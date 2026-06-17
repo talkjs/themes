@@ -1,0 +1,110 @@
+.t-theme-global-search-header {
+  position: relative;
+  z-index: 1;
+  background-color: var(--t-color-bg);
+  border-bottom: 1px solid var(--t-color-border);
+}
+
+.t-theme-global-search-box {
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  width: auto;
+  min-height: 40px;
+  margin: 12px;
+  border: 1px solid var(--t-color-border-strong);
+  border-radius: var(--t-radius-md);
+  background-color: var(--t-color-bg);
+  color: var(--t-color-text);
+  transition:
+    border-color 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.t-theme-global-search-box:focus-within {
+  background-color: var(--t-color-bg);
+}
+
+.t-theme-global-search-box .t-search-icon {
+  flex: 0 0 3em;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--t-color-text-muted);
+  background-color: var(--t-color-bg-subtle);
+  border-right: 1px solid var(--t-color-border-strong);
+  pointer-events: none;
+}
+
+.t-theme-global-search-box .t-search-icon .t-icon {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.t-theme-global-search-box .t-input {
+  flex: 1;
+  min-width: 0;
+  height: auto;
+  align-self: stretch;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 0 1em;
+}
+
+.t-theme-global-search-box .t-input:focus {
+  outline: none;
+}
+
+.t-theme-global-search-box .t-input:focus-visible {
+  outline: none;
+}
+
+.t-theme-global-search-box:has(.t-input:focus) {
+  border-color: var(--t-color-border-focus);
+}
+
+.t-theme-global-search-box:has(.t-input:focus-visible) {
+  border-color: var(--t-color-border-focus);
+  outline: 2px solid var(--t-color-border-strong);
+  outline-offset: 1px;
+}
+
+.t-theme-global-search-box .t-input::placeholder {
+  color: var(--t-color-text-muted);
+  opacity: 1;
+}
+
+.t-theme-global-search-box .t-input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.t-theme-global-search-box .t-clear {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.375em;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--t-color-text-muted);
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.t-theme-global-search-box .t-clear:hover {
+  color: var(--t-color-text);
+}
+
+.t-theme-global-search-box .t-clear:focus-visible {
+  outline: 2px solid var(--t-color-focus-ring);
+  outline-offset: 2px;
+}

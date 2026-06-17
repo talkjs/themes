@@ -1,0 +1,17 @@
+.t-theme-voice-block {
+  width: 100%;
+  min-width: 25ch;
+  margin: 0;
+}
+
+.t-theme-message[t-sender="other"] .t-theme-voice-block .t-play-pause-icon {
+  color: var(--t-color-bg-muted);
+}
+
+.t-theme-message[t-sender="currentUser"] .t-theme-voice-block .t-play-pause-icon {
+  color: var(--t-color-brand-primary);
+}
+
+.t-theme-message[t-sender="system"] .t-theme-voice-block .t-play-pause-icon {
+  color: var(--t-color-bg);
+}
