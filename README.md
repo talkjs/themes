@@ -1,6 +1,11 @@
-# Default theme for TalkJS chat
+# Themes for TalkJS chat
 
-This repository holds the default TalkJS theme. You can use the code here together with the [`@talkjs/react-components`](https://www.npmjs.com/package/@talkjs/react-components) or the [`@talkjs/web-components`](https://www.npmjs.com/package/@talkjs/web-components) package to customize the TalkJS chat in your app. For examples on how to customize your chat, [check out the TalkJS documentation.](https://talkjs.com/docs)
+This repository holds the source code for TalkJS's themes. You can use the code here together with the [`@talkjs/react-components`](https://www.npmjs.com/package/@talkjs/react-components) or the [`@talkjs/web-components`](https://www.npmjs.com/package/@talkjs/web-components) package to customize the TalkJS chat in your app. For examples on how to customize your chat, [check out the TalkJS documentation.](https://talkjs.com/docs)
+
+There are currently two themes available:
+
+- `default`
+- `classic`, which was previously the `default` theme before version 0.3.0.
 
 ## Contributing
 
