@@ -11,7 +11,10 @@ export function ChatHeader(props) {
   if (props.permissions.canSearch && chatSearchState !== "hidden") {
     return html`
       <div className="t-theme-chat-header">
-        <${ChatSearchBox} common=${props.common} />
+        <${ChatSearchBox}
+          common=${props.common}
+          searchQuery=${props.searchQuery}
+        />
       </div>
     `;
   }

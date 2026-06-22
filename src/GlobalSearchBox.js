@@ -3,14 +3,12 @@ import { html, SearchInput, Icon } from "@talkjs/react-components";
 
 /** @param {GlobalSearchBoxProps} props */
 export function GlobalSearchBox(props) {
-  const { common, query, setQuery, cancel } = props;
+  const { common, query, cancel } = props;
   const { t } = common;
 
   return html`
     <div className="t-theme-global-search-box">
       <${SearchInput}
-        value=${query}
-        onChange=${(e) => setQuery(e.target.value)}
         className="t-input"
         placeholder=${t.SEARCH_PLACEHOLDER_TEXT}
       />

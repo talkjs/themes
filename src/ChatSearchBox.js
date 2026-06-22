@@ -14,16 +14,6 @@ export function ChatSearchBox(props) {
     labelText = t.SEARCH_NO_MORE_RESULTS;
   }
 
-  const onChange = (event) => {
-    const value = event.target.value.trim();
-
-    const strings = value
-      .split(/\s+/)
-      .map((word) => word.trim())
-      .filter((word) => word);
-    chatbox.setHighlightedStrings(strings);
-  };
-
   return html`
     <div className="t-theme-chat-search-box">
       <button
@@ -44,7 +34,6 @@ export function ChatSearchBox(props) {
         <${SearchInput}
           id="t-search-input"
           autoFocus
-          onChange=${onChange}
           className="t-search-input"
           placeholder=${t.SEARCH_PLACEHOLDER_TEXT}
         />
