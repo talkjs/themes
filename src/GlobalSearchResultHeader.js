@@ -14,6 +14,7 @@ export function GlobalSearchResultHeader(props) {
   return html`
     <div className="t-theme-global-search-result-header">
       <span className="t-title">${title}</span>
+
       ${canLoadMore &&
       html`
         <button className="t-show-more" onClick=${loadMore}>

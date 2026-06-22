@@ -1,5 +1,5 @@
 import { html, AudioPlayer, Icon } from "@talkjs/react-components";
-/** @import { RecordingPreviewProps } from "@talkjs/react-components" */
+/** @import { RecordingPreviewProps } from "@talkjs/react-components"; */
 
 /**
  * RecordingPreview renders after recording stops, allowing the user to preview

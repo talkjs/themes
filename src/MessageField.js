@@ -50,14 +50,14 @@ export function MessageField(props) {
           <${EmojiPicker} colorScheme="light" />
         </div>
       `}
+
       <${EmojiSuggestBar} />
       <${MentionSuggestList} />
 
       ${referencedMessage &&
-      html`<${ReplyBar}
-        common=${common}
-        referencedMessage=${referencedMessage}
-      />`}
+      html`
+        <${ReplyBar} common=${common} referencedMessage=${referencedMessage} />
+      `}
 
       <div className="t-wrapper">
         ${editor.atTextLimit &&
@@ -90,38 +90,44 @@ export function MessageField(props) {
 
               <div className="t-button-overlay">
                 ${showLocationButton &&
-                html`<button
-                  className="t-location-button"
-                  t-kind="icon-button"
-                  aria-label=${t.UPLOAD_SHARE_LOCATION}
-                  title=${t.UPLOAD_SHARE_LOCATION}
-                  onClick=${() => editor.shareLocation()}
-                >
-                  <${Icon} type="location" size="20px" />
-                </button>`}
+                html`
+                  <button
+                    className="t-location-button"
+                    t-kind="icon-button"
+                    aria-label=${t.UPLOAD_SHARE_LOCATION}
+                    title=${t.UPLOAD_SHARE_LOCATION}
+                    onClick=${() => editor.shareLocation()}
+                  >
+                    <${Icon} type="location" size="20px" />
+                  </button>
+                `}
                 ${showAttachmentButton &&
-                html`<button
-                  className="t-attachment-button"
-                  t-kind="icon-button"
-                  aria-label=${t.UPLOAD_SEND_FILE}
-                  title=${t.UPLOAD_SEND_FILE}
-                  onClick=${() => editor.attachFile()}
-                >
-                  <${Icon} type="attachment" size="20px" />
-                </button>`}
+                html`
+                  <button
+                    className="t-attachment-button"
+                    t-kind="icon-button"
+                    aria-label=${t.UPLOAD_SEND_FILE}
+                    title=${t.UPLOAD_SEND_FILE}
+                    onClick=${() => editor.attachFile()}
+                  >
+                    <${Icon} type="attachment" />
+                  </button>
+                `}
                 ${showEmojiButton &&
-                html`<button
-                  className="t-emoji-button"
-                  t-kind="icon-button"
-                  aria-label=${t.ARIA_INSERT_EMOJI}
-                  title=${t.ARIA_INSERT_EMOJI}
-                  onClick=${() => editor.toggleEmojiPicker()}
-                >
-                  <${Icon}
-                    size=${editor.showEmojiPicker ? "24px" : "20px"}
-                    type=${editor.showEmojiPicker ? "close" : "emoji"}
-                  />
-                </button>`}
+                html`
+                  <button
+                    className="t-emoji-button"
+                    t-kind="icon-button"
+                    aria-label=${t.ARIA_INSERT_EMOJI}
+                    title=${t.ARIA_INSERT_EMOJI}
+                    onClick=${() => editor.toggleEmojiPicker()}
+                  >
+                    <${Icon}
+                      type=${editor.showEmojiPicker ? "close" : "emoji"}
+                      size=${editor.showEmojiPicker ? "24px" : "20px"}
+                    />
+                  </button>
+                `}
               </div>
             </div>
           `}
@@ -130,26 +136,30 @@ export function MessageField(props) {
           html`
             <div className="t-send-column">
               ${showRecordButton &&
-              html`<button
-                className="t-record-button"
-                t-kind="icon-button"
-                aria-label=${t.VOICE_MESSAGE}
-                title=${t.VOICE_MESSAGE}
-                onClick=${() => editor.recordVoiceMessage()}
-              >
-                <${Icon} type="microphone" size="20px" />
-              </button>`}
+              html`
+                <button
+                  className="t-record-button"
+                  t-kind="icon-button"
+                  aria-label=${t.VOICE_MESSAGE}
+                  title=${t.VOICE_MESSAGE}
+                  onClick=${() => editor.recordVoiceMessage()}
+                >
+                  <${Icon} type="microphone" size="20px" />
+                </button>
+              `}
               ${!showRecordButton &&
-              html`<button
-                className="t-send-button"
-                t-kind="icon-button"
-                aria-label=${t.SEND_BUTTON_TEXT}
-                title=${t.SEND_BUTTON_TEXT}
-                onClick=${() => editor.send()}
-                disabled=${!canSend}
-              >
-                <${Icon} type="arrowUp" size="20px" />
-              </button>`}
+              html`
+                <button
+                  className="t-send-button"
+                  t-kind="icon-button"
+                  aria-label=${t.SEND_BUTTON_TEXT}
+                  title=${t.SEND_BUTTON_TEXT}
+                  onClick=${() => editor.send()}
+                  disabled=${!canSend}
+                >
+                  <${Icon} type="arrowUp" size="20px" />
+                </button>
+              `}
             </div>
           `}
           ${mode === "edit" &&
@@ -161,6 +171,7 @@ export function MessageField(props) {
               >
                 ${t.CANCEL}
               </button>
+
               <button
                 t-action="save"
                 onClick=${() => editor.send()}

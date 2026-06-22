@@ -7,10 +7,11 @@ export function TimeAgo(props) {
     // virtual message, no timestamp
     return null;
   }
-  return html`<${TimeAgoSpan} ...${props} />`;
+  return html`
+    <${TimeAgoSpan} ...${props} />
+  `;
 }
 
-/** @param {TimeAgoProps} props */
 function TimeAgoSpan({ timestamp, common }) {
   const { t } = common;
 

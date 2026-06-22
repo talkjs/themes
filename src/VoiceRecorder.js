@@ -1,5 +1,5 @@
 import { html, formatDuration, Waveform, Icon } from "@talkjs/react-components";
-/** @import { VoiceRecorderProps } from "@talkjs/react-components" */
+/** @import { VoiceRecorderProps } from "@talkjs/react-components"; */
 
 /**
  * VoiceRecorder renders during active voice recording.
@@ -25,9 +25,9 @@ export function VoiceRecorder(props) {
 
       <div className="t-textbox-column t-waveform-wrapper">
         <${Waveform} className="t-waveform" voiceRecorder=${voiceRecorder} />
-        <span className="t-duration"
-          >${formatDuration(voiceRecorder.duration)}</span
-        >
+        <span className="t-duration">
+          ${formatDuration(voiceRecorder.duration)}
+        </span>
       </div>
 
       <div className="t-send-column">

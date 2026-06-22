@@ -223,6 +223,7 @@
 
 .t-theme-message .t-message-status {
   display: inline-flex;
+  user-select: none;
 
   font-size: 75%;
 

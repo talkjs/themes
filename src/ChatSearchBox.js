@@ -1,7 +1,7 @@
 import { html, SearchInput, Icon } from "@talkjs/react-components";
-/** @import { ChatSearchBoxProps } from "@talkjs/react-components" */
+/** @import { ChatSearchBoxProps } from "@talkjs/react-components"; */
 
-/** @param { ChatSearchBoxProps } props */
+/** @param {ChatSearchBoxProps} props */
 export function ChatSearchBox(props) {
   const { t, chatbox, chatSearchState } = props.common;
 
@@ -31,9 +31,10 @@ export function ChatSearchBox(props) {
         >
           ${labelText}
         </label>
+
         <${SearchInput}
           id="t-search-input"
-          autoFocus
+          autoFocus=${true}
           className="t-search-input"
           placeholder=${t.SEARCH_PLACEHOLDER_TEXT}
         />
@@ -47,6 +48,7 @@ export function ChatSearchBox(props) {
       >
         <${Icon} type="chevronUp" size="20px" />
       </button>
+
       <button
         className="t-button t-next-button"
         aria-label=${t.ARIA_SEARCH_DOWN}

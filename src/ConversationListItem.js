@@ -62,7 +62,9 @@ export function ConversationListItem(props) {
             <div className="t-message">
               ${isGroupChat &&
               senderName &&
-              html`<span className="t-message-sender">${senderName}:</span>`}
+              html`
+                <span className="t-message-sender">${senderName}:</span>
+              `}
 
               <${CompactMessageContent}
                 message=${lastMessage}
@@ -78,7 +80,6 @@ export function ConversationListItem(props) {
   `;
 }
 
-/** @param {ConversationListItemProps} props */
 function UnreadCount({ conversation }) {
   const { isUnread, unreadMessageCount } = conversation;
 
@@ -87,20 +88,18 @@ function UnreadCount({ conversation }) {
   }
 
   if (unreadMessageCount === 0) {
-    return html`<div className="t-unread-generic-dot" />`;
+    return html`
+      <div className="t-unread-generic-dot" />
+    `;
   }
 
   if (unreadMessageCount > 999) {
     return html`
-      <div className="t-unread-dot">
-        <span>999+</span>
-      </div>
+      <div className="t-unread-dot"><span>999+</span></div>
     `;
   }
 
   return html`
-    <div className="t-unread-dot">
-      <span>${unreadMessageCount}</span>
-    </div>
+    <div className="t-unread-dot"><span>${unreadMessageCount}</span></div>
   `;
 }

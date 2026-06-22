@@ -14,10 +14,14 @@ export function BeforeMessages({ common }) {
   }
 
   const virtualMessages = welcomeMessages.map(
-    (message, i) => html`<${VirtualMessage} key=${i} text=${message} />`,
+    (message, i) => html`
+      <${VirtualMessage} key=${i} text=${message} />
+    `,
   );
 
   // We're inside a `flex-direction: column-reverse` container so we render the
   // messages in reverse order.
-  return html`<div className="t-message-group">${virtualMessages.reverse()}</div>`;
+  return html`
+    <div className="t-message-group">${virtualMessages.reverse()}</div>
+  `;
 }

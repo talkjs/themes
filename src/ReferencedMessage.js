@@ -2,7 +2,8 @@ import { html } from "@talkjs/react-components";
 /** @import { ReferencedMessageProps } from "@talkjs/react-components"; */
 
 /** @param {ReferencedMessageProps} props */
-export function ReferencedMessage({ referencedMessage, common }) {
+export function ReferencedMessage(props) {
+  const { referencedMessage, common } = props;
   const { theme, chatbox } = common;
   const { CompactMessageContent } = theme;
 
@@ -12,6 +13,7 @@ export function ReferencedMessage({ referencedMessage, common }) {
       onClick=${() => chatbox.focusMessage(referencedMessage.id)}
     >
       <div className="t-sender-name">${referencedMessage.sender.name}</div>
+
       <div className="t-content">
         <${CompactMessageContent}
           message=${referencedMessage}

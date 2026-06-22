@@ -11,16 +11,17 @@ export function LocationBlock({ block }) {
       <a
         href=${linkUrl}
         target="_blank"
+        rel="noreferrer"
         className="t-root"
         style=${{
           background: `${cssImageUrl} center center / cover no-repeat`,
         }}
-      ></a>
+      />
 
       <span className="t-body-text">
-        <a href=${linkUrl} target="_blank" rel="noopener noreferrer"
-          >${linkUrl}</a
-        >
+        <a href=${linkUrl} target="_blank" rel="noopener noreferrer">
+          ${linkUrl}
+        </a>
       </span>
     </div>
   `;

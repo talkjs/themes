@@ -10,24 +10,35 @@ export function MessageActionMenu(props) {
   const doEdit = () => chatbox.setEditing(message.id);
   const doDelete = () => chatbox.deleteMessage(message.id);
 
-  return html` <div className="t-theme-message-action-menu">
-    ${permissions.canReplyToMessage &&
-    html`
-        <${MenuItem} className="t-menu-item" onSelect=${doReply}>
+  return html`
+    <div className="t-theme-message-action-menu">
+      ${permissions.canReplyToMessage &&
+      html`
+        <${MenuItem}
+          className="t-menu-item"
+          onSelect=${doReply}
+        >
           ${t.REPLY_TO_MESSAGE}
         </${MenuItem}>
       `}
-    ${permissions.canEditMessage &&
-    html`
-        <${MenuItem} className="t-menu-item" onSelect=${doEdit}>
+      ${permissions.canEditMessage &&
+      html`
+        <${MenuItem}
+          className="t-menu-item"
+          onSelect=${doEdit}
+        >
           ${t.EDIT_MESSAGE}
         </${MenuItem}>
       `}
-    ${permissions.canDeleteMessage &&
-    html`
-        <${MenuItem} className="t-menu-item t-danger" onSelect=${doDelete}>
+      ${permissions.canDeleteMessage &&
+      html`
+        <${MenuItem}
+          className="t-menu-item t-danger"
+          onSelect=${doDelete}
+        >
           ${t.DELETE_MESSAGE}
         </${MenuItem}>
       `}
-  </div>`;
+    </div>
+  `;
 }

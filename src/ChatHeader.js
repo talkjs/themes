@@ -1,5 +1,5 @@
-import { html, Icon, useParticipants } from "@talkjs/react-components";
-/** @import { ChatHeaderProps } from "@talkjs/react-components" */
+import { html, useParticipants, Icon } from "@talkjs/react-components";
+/** @import { ChatHeaderProps } from "@talkjs/react-components"; */
 
 /** @param {ChatHeaderProps} props */
 export function ChatHeader(props) {
@@ -31,6 +31,7 @@ export function ChatHeader(props) {
           >
             <${Icon} type="chevronLeft" />
           </button>
+
           <div className="t-image">
             <${ConversationImage}
               conversation=${conversation}
@@ -43,6 +44,7 @@ export function ChatHeader(props) {
             <${Title} ...${props} />
           </div>
         </div>
+
         <div className="t-actions">
           <button
             className="t-action-button"
@@ -58,7 +60,6 @@ export function ChatHeader(props) {
   `;
 }
 
-/** @param {ChatHeaderProps} props */
 function Title(props) {
   const { common } = props;
 
@@ -70,15 +71,18 @@ function Title(props) {
       </div>
     `;
   } else {
-    return html`<div className="t-title">
-      <${Participants} ...${props} />
-    </div>`;
+    return html`
+      <div className="t-title">
+        <${Participants} ...${props} />
+      </div>
+    `;
   }
 }
 
-/** @param {ChatHeaderProps} props */
-function Participants({ common, isUserConnected, permissions }) {
-  const { participants } = common;
+function Participants(props) {
+  const { common, isUserConnected, permissions } = props;
+  const participants = useParticipants(common.conversation.id, 10);
+
   const otherParticipants = participants.filter(
     ({ user }) => user.id !== common.currentUser.id,
   );
@@ -92,10 +96,11 @@ function Participants({ common, isUserConnected, permissions }) {
           ({ user }) => html`
             <span className="t-participant" key=${user.id}>
               <span>${user.name}</span>
+
               <span
                 className="t-online-indicator"
                 t-status=${isUserConnected[user.id] ? "online" : "offline"}
-              ></span>
+              />
             </span>
           `,
         )}
@@ -107,5 +112,7 @@ function Participants({ common, isUserConnected, permissions }) {
     .map(({ user }) => user.name)
     .join(", ");
 
-  return html`<span className="t-participants">${participantsList}</span>`;
+  return html`
+    <span className="t-participants">${participantsList}</span>
+  `;
 }

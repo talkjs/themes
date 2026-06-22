@@ -1,10 +1,16 @@
-import { html, formatFilesize, Highlightable, Icon } from "@talkjs/react-components";
+import {
+  html,
+  formatFilesize,
+  Highlightable,
+  Icon,
+} from "@talkjs/react-components";
 /** @import { ImageBlockProps } from "@talkjs/react-components"; */
 
 /** @param {ImageBlockProps} props */
-export function ImageBlock({ block, downloadUrl, common }) {
+export function ImageBlock({ block, downloadUrl }) {
   const width = block.width || 1;
   const height = block.height || 1;
+  // typed as any, because react's style objects types don't include custom properties.
   const style = { "--img-w": width, "--img-h": height };
 
   return html`
@@ -20,10 +26,16 @@ export function ImageBlock({ block, downloadUrl, common }) {
         </div>
       </a>
 
-      <a href=${downloadUrl} className="t-body-text" target="_blank">
+      <a
+        href=${downloadUrl}
+        className="t-body-text"
+        target="_blank"
+        rel="noreferrer"
+      >
         <${Icon} className="download-icon" type="download" />
+
         <${Highlightable} text=${block.filename} />
-        <span className="t-filesize"> (${formatFilesize(block.size)})</span>
+        <span className="t-filesize">(${formatFilesize(block.size)})</span>
       </a>
     </div>
   `;

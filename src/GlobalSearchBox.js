@@ -12,6 +12,7 @@ export function GlobalSearchBox(props) {
         className="t-input"
         placeholder=${t.SEARCH_PLACEHOLDER_TEXT}
       />
+
       ${query.length > 0 &&
       html`
         <button
@@ -24,7 +25,9 @@ export function GlobalSearchBox(props) {
         </button>
       `}
       ${query.length === 0 &&
-      html` <${Icon} className="t-submit" size="20px" type="search" /> `}
+      html`
+        <${Icon} className="t-submit" type="search" size="20px" />
+      `}
     </div>
   `;
 }

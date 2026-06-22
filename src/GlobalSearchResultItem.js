@@ -63,9 +63,13 @@ export function GlobalSearchResultItem(props) {
             <div className="t-message">
               ${isGroupChat &&
               senderName &&
-              html`<span className="t-message-sender">
-                <${Highlightable} text=${senderName} />:
-              </span>`}
+              html`
+                <span className="t-message-sender">
+                  <${Highlightable} text=${senderName} />
+                  :
+                </span>
+              `}
+
               <${CompactMessageContent} message=${message} common=${common} />
             </div>
           `}
