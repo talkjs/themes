@@ -145,7 +145,7 @@ export function MessageField(props) {
               ${showRecordButton &&
               html`
                 <button
-                  className="t-send-button"
+                  className="t-record-button"
                   t-kind="icon-button"
                   aria-label=${t.VOICE_MESSAGE}
                   title=${t.VOICE_MESSAGE}

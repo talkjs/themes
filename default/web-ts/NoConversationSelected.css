@@ -1,9 +1,9 @@
-.t-no-conversation-selected {
+.t-theme-no-conversation-selected {
   display: none;
 }
 
-.t-inbox .t-no-conversation-selected,
-t-inbox .t-no-conversation-selected {
+.t-inbox .t-theme-no-conversation-selected,
+t-inbox .t-theme-no-conversation-selected {
   display: flex;
   align-items: center;
   justify-content: center;

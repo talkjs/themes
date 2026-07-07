@@ -133,7 +133,7 @@ export function MessageField(props) {
             <div className="t-send-column">
               {showRecordButton && (
                 <button
-                  className="t-send-button"
+                  className="t-record-button"
                   t-kind="icon-button"
                   aria-label={t.VOICE_MESSAGE}
                   title={t.VOICE_MESSAGE}
