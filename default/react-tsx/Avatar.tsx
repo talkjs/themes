@@ -4,7 +4,7 @@ export function Avatar({ photoUrl }: AvatarProps) {
   return (
     <div
       className="t-theme-avatar"
-      style={{ backgroundImage: `url(${photoUrl})` }}
+      style={{ backgroundImage: `url("${photoUrl}")` }}
     />
   );
 }
