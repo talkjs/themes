@@ -52,3 +52,8 @@
   background-color: var(--t-color-danger-hover);
   border-color: var(--t-color-danger-hover);
 }
+
+.t-theme-voice-recorder .t-stop-button:focus-visible {
+  outline: 2px solid var(--t-color-focus-ring-strong);
+  outline-offset: 1px;
+}

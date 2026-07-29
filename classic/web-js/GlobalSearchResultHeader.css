@@ -31,6 +31,12 @@
   text-decoration: underline;
 }
 
+.t-theme-global-search-result-header .t-show-more:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgb(0 125 249 / 50%);
+  border-radius: 0.25em;
+}
+
 .t-theme-global-search-result-header .t-show-more:disabled {
   opacity: 0.6;
   cursor: not-allowed;

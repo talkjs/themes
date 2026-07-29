@@ -36,6 +36,11 @@
   opacity: 1;
 }
 
+.t-theme-reply-bar .t-close-button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgb(0 125 249 / 50%);
+}
+
 .t-theme-reply-bar .t-body {
   flex-grow: 1;
   padding: 0 1em;

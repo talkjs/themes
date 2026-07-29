@@ -1,4 +1,5 @@
 .t-theme-conversation-list-item {
+  position: relative;
   color: #525252;
   text-decoration: none;
   width: 100%;
@@ -25,7 +26,21 @@
   color: #525252;
 }
 
-.t-theme-conversation-list-item:first-child {
+.t-theme-conversation-list-item .t-conversation-name-link {
+  flex-grow: 1;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.t-theme-conversation-list-item .t-conversation-name-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.t-conversation-list-item-wrapper:first-child
+  .t-theme-conversation-list-item {
   border-top: 1px solid #d4d4d4;
 }
 
@@ -33,7 +48,8 @@
   color: #fff;
 }
 
-.t-theme-conversation-list-item:last-child {
+.t-conversation-list-item-wrapper:last-child
+  .t-theme-conversation-list-item {
   margin-bottom: 0.68em;
 }
 
@@ -47,13 +63,48 @@
   background-color: #007df9;
 }
 
-.t-theme-conversation-list-item[t-selected]:focus-visible {
-  outline: #fff 0.142em solid;
-  outline-offset: -0.29em;
+/*
+ * Safari does not reliably update :focus-visible when an item first receives
+ * focus through a click and our internal keyboard navigation list component
+ * then moves focus programmatically. We therefore add a
+ * `t-keyboard-navigation-active` attribute to the list container while
+ * arrow-key navigation is being used. Styling a normally focused item that is
+ * a descendant of that marker preserves the keyboard focus styling without
+ * showing it for ordinary pointer focus.
+ * See https://bugs.webkit.org/show_bug.cgi?id=225148.
+ */
+.t-theme-conversation-list-item[t-selected]:has(
+  .t-conversation-name-link:focus-visible
+  ),
+[t-keyboard-navigation-active]
+  .t-theme-conversation-list-item[t-selected]:has(
+    .t-conversation-name-link:focus
+  ) {
   border-bottom: 0;
 }
 
-.t-theme-conversation-list-item:focus-visible {
+.t-theme-conversation-list-item[t-selected]
+  .t-conversation-name-link:focus-visible::after,
+[t-keyboard-navigation-active]
+  .t-theme-conversation-list-item[t-selected]
+  .t-conversation-name-link:focus::after {
+  outline: #fff 0.142em solid;
+  outline-offset: -0.29em;
+}
+
+.t-theme-conversation-list-item
+  .t-conversation-name-link:focus-visible,
+[t-keyboard-navigation-active]
+  .t-theme-conversation-list-item
+  .t-conversation-name-link:focus {
+  outline: none;
+}
+
+.t-theme-conversation-list-item
+  .t-conversation-name-link:focus-visible::after,
+[t-keyboard-navigation-active]
+  .t-theme-conversation-list-item
+  .t-conversation-name-link:focus::after {
   outline: #3291ff 0.14em solid;
   outline-offset: -0.14em;
 }
@@ -101,6 +152,7 @@
 }
 
 .t-theme-conversation-list-item .t-conversation-name {
+  margin: 0;
   font-weight: 600;
 }
 
@@ -116,6 +168,7 @@
 .t-theme-conversation-list-item .t-message {
   opacity: 0.75;
   flex-basis: 0; /* helps balance width of message preview with unread message counter */
+  line-height: 1.375;
 }
 
 .t-theme-conversation-list-item .t-unread-dot {

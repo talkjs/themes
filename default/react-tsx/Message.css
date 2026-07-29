@@ -169,6 +169,7 @@
   border: none;
   border-radius: var(--t-radius-lg);
   font-size: var(--t-font-size-sm);
+  line-height: 1.375;
 }
 
 .t-theme-message[t-sender="currentUser"] .t-message-body {
@@ -445,6 +446,11 @@
   color: var(--t-color-text);
   user-select: none;
   -webkit-user-select: none;
+}
+
+.t-theme-message .t-reaction-button:focus-visible {
+  outline: 2px solid var(--t-color-focus-ring);
+  outline-offset: 1px;
 }
 
 /* Let hover hit the button so Tooltip can read `t-tooltip-text` on it */

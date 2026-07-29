@@ -1,4 +1,8 @@
-import { html, useParticipants } from "@talkjs/web-components";
+import {
+  html,
+  KeyboardNavigationListItem,
+  useParticipants,
+} from "@talkjs/web-components";
 /** @import { ConversationListItemProps } from "@talkjs/web-components"; */
 
 /** @param {ConversationListItemProps} props */
@@ -36,7 +40,6 @@ export function ConversationListItem(props) {
       className="t-theme-conversation-list-item"
       t-unread=${conversation.unreadMessageCount ? "" : undefined}
       t-selected=${isSelected ? "" : undefined}
-      onClick=${() => conversationList.selectConversation(conversation.id)}
     >
       <${ConversationImage}
         conversation=${conversation}
@@ -46,32 +49,48 @@ export function ConversationListItem(props) {
 
       <div className="t-inner">
         <div className="t-header">
-          <div className="t-conversation-name">${subject}</div>
+          <${KeyboardNavigationListItem}
+            as="a"
+            className="t-conversation-name-link"
+            href="#"
+            aria-current=${isSelected ? "page" : undefined}
+            t-selected=${isSelected ? "" : undefined}
+            onClick=${(event) => {
+              event.preventDefault();
+              conversationList.selectConversation(conversation.id);
+            }}
+          >
+            <h3 className="t-conversation-name">${subject}</h3>
+          </${KeyboardNavigationListItem}>
 
-          ${timestamp &&
-          html`
-            <span className="t-timestamp">
-              <${TimeAgo} timestamp=${timestamp} common=${common} />
-            </span>
-          `}
+          ${
+            timestamp &&
+            html`
+              <span className="t-timestamp">
+                <${TimeAgo} timestamp=${timestamp} common=${common} />
+              </span>
+            `
+          }
         </div>
 
         <div className="t-body">
-          ${lastMessage &&
-          html`
-            <div className="t-message">
-              ${isGroupChat &&
-              senderName &&
-              html`
-                <span className="t-message-sender">${senderName}:</span>
-              `}
+          ${
+            lastMessage &&
+            html`
+              <div className="t-message">
+                ${isGroupChat &&
+                senderName &&
+                html`
+                  <span className="t-message-sender">${senderName}:</span>
+                `}
 
-              <${CompactMessageContent}
-                message=${lastMessage}
-                common=${common}
-              />
-            </div>
-          `}
+                <${CompactMessageContent}
+                  message=${lastMessage}
+                  common=${common}
+                />
+              </div>
+            `
+          }
 
           <${UnreadCount} ...${props} />
         </div>

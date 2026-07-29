@@ -40,6 +40,11 @@
   opacity: 1;
 }
 
+.t-theme-reply-bar .t-close-button:focus-visible {
+  outline: 2px solid var(--t-color-focus-ring);
+  outline-offset: 1px;
+}
+
 .t-theme-reply-bar .t-reply-icon {
   flex-shrink: 0;
 }

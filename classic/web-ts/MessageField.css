@@ -134,6 +134,11 @@
   color: rgba(17, 17, 17, 1);
 }
 
+.t-theme-message-field .t-edit-row button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(0 125 249 / 50%);
+}
+
 .t-theme-message-field .t-edit-row button[t-action="save"] {
   background-color: #007df9;
   color: white;

@@ -1,4 +1,4 @@
-import { useParticipants } from "@talkjs/react-components";
+import { KeyboardNavigationListItem, useParticipants } from "@talkjs/react-components";
 import type { ConversationListItemProps } from "@talkjs/react-components";
 
 export function ConversationListItem(props: ConversationListItemProps) {
@@ -35,7 +35,6 @@ export function ConversationListItem(props: ConversationListItemProps) {
       className="t-theme-conversation-list-item"
       t-unread={conversation.unreadMessageCount ? "" : undefined}
       t-selected={isSelected ? "" : undefined}
-      onClick={() => conversationList.selectConversation(conversation.id)}
     >
       <ConversationImage
         conversation={conversation}
@@ -45,7 +44,19 @@ export function ConversationListItem(props: ConversationListItemProps) {
 
       <div className="t-inner">
         <div className="t-header">
-          <div className="t-conversation-name">{subject}</div>
+          <KeyboardNavigationListItem
+            as="a"
+            className="t-conversation-name-link"
+            href="#"
+            aria-current={isSelected ? "page" : undefined}
+            t-selected={isSelected ? "" : undefined}
+            onClick={(event) => {
+              event.preventDefault();
+              conversationList.selectConversation(conversation.id);
+            }}
+          >
+            <h3 className="t-conversation-name">{subject}</h3>
+          </KeyboardNavigationListItem>
 
           {timestamp && (
             <span className="t-timestamp">

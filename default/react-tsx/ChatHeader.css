@@ -110,8 +110,14 @@
   height: 2.5rem;
 }
 
-.t-theme-chat-header .t-action-button:hover {
+.t-theme-chat-header .t-action-button:hover,
+.t-theme-chat-header .t-action-button:focus {
   color: var(--t-color-text);
+}
+
+.t-theme-chat-header .t-action-button:focus-visible {
+  outline: 2px solid var(--t-color-focus-ring);
+  outline-offset: 1px;
 }
 
 .t-theme-chat-header .t-back-button {
@@ -133,6 +139,11 @@
 .t-theme-chat-header .t-back-button:hover,
 .t-theme-chat-header .t-back-button:focus {
   color: var(--t-color-text);
+}
+
+.t-theme-chat-header .t-back-button:focus-visible {
+  outline: 2px solid var(--t-color-focus-ring);
+  outline-offset: 1px;
 }
 
 [t-mobile-inbox] .t-theme-chat-header .t-back-button {

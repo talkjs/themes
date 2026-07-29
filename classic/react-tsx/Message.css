@@ -52,6 +52,7 @@
   background-color: #f7f7f7;
   color: #111;
   padding: 0.75em 1em;
+  line-height: 1.375;
 }
 
 .t-theme-message .t-message-body .t-theme-referenced-message {
@@ -345,6 +346,11 @@
   background-color: #e8ecee;
   user-select: none;
   -webkit-user-select: none;
+}
+
+.t-theme-message .t-reaction-button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgb(0 125 249 / 50%);
 }
 
 .t-theme-message .t-reaction-button > * {
