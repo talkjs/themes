@@ -10,7 +10,9 @@
   column-gap: 0.625em;
   align-items: start;
 
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  /* Content-sized column avoids stretching to full chat width in
+     wide chatboxes. minmax(0, …) still allows shrinking when narrow. */
+  grid-template-columns: auto minmax(0, auto) auto;
   grid-template-rows: auto auto auto;
   grid-template-areas:
     ".      sender  sender"
@@ -20,7 +22,7 @@
 
 .t-theme-message[t-sender="currentUser"] {
   align-self: end;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, auto) auto;
   grid-template-rows: auto auto;
   grid-template-areas:
     "actions message avatar"
@@ -153,9 +155,10 @@
   display: inline-block;
   position: relative;
   align-self: center;
-  justify-self: end;
 
-  width: fit-content;
+  /* Non-% max-width caps intrinsic sizing so the grid doesn't expand in
+     wide chatboxes. min-width: 0 lets the column shrink when narrow. */
+  min-width: 0;
   padding: 6px 10px;
 
   overflow: visible;
@@ -163,7 +166,7 @@
   overflow-wrap: break-word;
 
   grid-area: message;
-  max-width: min(100%, 70ch);
+  max-width: 70ch;
   background-color: var(--t-color-bg-muted);
   color: var(--t-color-text);
   border: none;
@@ -265,13 +268,17 @@
   display: inline-flex;
   grid-area: status;
   max-width: min(100%, 70ch);
-  justify-self: end;
+  justify-self: start;
   min-width: 3.5ch;
   user-select: none;
 
   color: var(--t-color-text-muted);
   font-size: 0.75em;
   text-align: right;
+}
+
+.t-theme-message[t-sender="currentUser"] .t-message-status {
+  justify-self: end;
 }
 
 /* Hide the status for any messages except the last one
