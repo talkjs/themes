@@ -26,6 +26,7 @@ export function MessageField(props) {
   const canSend =
     !editor.atTextLimit &&
     !editor.isEmpty &&
+    !editor.sendBlocked &&
     conversation.access === "ReadWrite";
 
   const showLocationButton =
@@ -143,6 +144,7 @@ export function MessageField(props) {
                   aria-label=${t.VOICE_MESSAGE}
                   title=${t.VOICE_MESSAGE}
                   onClick=${() => editor.recordVoiceMessage()}
+                  disabled=${editor.sendBlocked}
                 >
                   <${Icon} type="microphone" size="20px" />
                 </button>

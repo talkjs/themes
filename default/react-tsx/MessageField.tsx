@@ -27,6 +27,7 @@ export function MessageField(props: MessageFieldProps) {
   const canSend =
     !editor.isEmpty &&
     !editor.atTextLimit &&
+    !editor.sendBlocked &&
     conversation.access === "ReadWrite";
 
   const showEditor = !voiceRecorder && conversation.access === "ReadWrite";
@@ -137,6 +138,7 @@ export function MessageField(props: MessageFieldProps) {
                   aria-label={t.VOICE_MESSAGE}
                   title={t.VOICE_MESSAGE}
                   onClick={() => editor.recordVoiceMessage()}
+                  disabled={editor.sendBlocked}
                 >
                   <Icon type="microphone" size={20} />
                 </button>
