@@ -50,7 +50,7 @@ export function MessageField(props) {
       ${editor.showEmojiPicker &&
       html`
         <div className="t-emoji-picker-wrapper">
-          <${EmojiPicker} colorScheme="light" />
+          <${EmojiPicker} />
         </div>
       `}
 

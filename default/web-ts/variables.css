@@ -1,7 +1,9 @@
 .t-chatbox,
-t-chatbox,
 .t-conversation-list,
+t-chatbox,
 t-conversation-list {
+  color-scheme: light;
+
   /* =========================
    * Primitive tokens
    * ========================= */
@@ -121,4 +123,30 @@ t-conversation-list {
 
   /* Header */
   --t-chat-header-presence-online: var(--t-color-green-500);
+
+  --t-tooltip-bg: var(--t-color-bg-inverse, rgb(23 23 23));
+  --t-tooltip-text: var(--t-color-bg, rgb(255 255 255));
+}
+
+.t-chatbox[t-color-scheme="dark"],
+.t-conversation-list[t-color-scheme="dark"],
+t-chatbox[t-color-scheme="dark"],
+t-conversation-list[t-color-scheme="dark"] {
+  color-scheme: dark;
+
+  --t-color-bg: rgb(23 23 23);
+  --t-color-bg-muted: rgb(43 43 43);
+  --t-color-bg-subtle: rgb(32 32 32);
+  --t-color-bg-inverse: rgb(250 250 250);
+
+  --t-color-text: rgb(250 250 250);
+  --t-color-text-muted: rgb(200 200 200);
+  --t-color-text-disabled: rgb(138 138 138);
+
+  --t-color-border: rgb(58 58 58);
+  --t-color-border-strong: rgb(85 85 85);
+
+  --t-color-danger: rgb(248 113 113);
+  --t-color-danger-hover: rgb(252 165 165);
+  --t-color-danger-subtle: rgb(63 29 29);
 }

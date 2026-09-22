@@ -47,7 +47,7 @@ export function MessageField(props: MessageFieldProps) {
     <div className="t-theme-message-field" t-mode={mode}>
       {editor.showEmojiPicker && (
         <div className="t-emoji-picker-wrapper">
-          <EmojiPicker colorScheme="light" />
+          <EmojiPicker />
         </div>
       )}
 

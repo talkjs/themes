@@ -78,7 +78,7 @@
 
 .t-theme-message-action-menu .t-menu-item:hover .t-menu-item-icon,
 .t-theme-message-action-menu .t-menu-item:focus .t-menu-item-icon {
-  color: var(--t-color-white);
+  color: var(--t-color-bg);
 }
 
 .t-theme-message-action-menu .t-menu-item.t-danger .t-menu-item-icon {
@@ -93,5 +93,5 @@
 
 .t-theme-message-action-menu .t-menu-item.t-danger:hover .t-menu-item-icon,
 .t-theme-message-action-menu .t-menu-item.t-danger:focus .t-menu-item-icon {
-  color: var(--t-color-white);
+  color: var(--t-color-bg);
 }

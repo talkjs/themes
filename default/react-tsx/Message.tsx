@@ -8,18 +8,7 @@ import {
   useReactions,
   Icon,
 } from "@talkjs/react-components";
-import type { MessageProps } from "@talkjs/react-components";
-
-type MessageReaction = {
-  emoji: string;
-  count: number;
-  currentUserReacted: boolean;
-};
-
-type ReactionPickerProps = {
-  messageId: string;
-  colorScheme: "light" | "dark";
-};
+import type { MessageProps, ReactionsSummarySnapshot } from "@talkjs/react-components";
 
 export function Message(props: MessageProps) {
   const { message, messageStatus, permissions, common } = props;
@@ -53,11 +42,6 @@ export function Message(props: MessageProps) {
   const focusedMessageId = common.focusedMessage?.id;
   const focused =
     focusedMessageId !== undefined && message.id === focusedMessageId;
-
-  const reactionPickerProps: ReactionPickerProps = {
-    messageId: message.id,
-    colorScheme: "light",
-  };
 
   return (
     <div
@@ -105,7 +89,7 @@ export function Message(props: MessageProps) {
 
         {message.reactions?.length > 0 && (
           <div className="t-emoji-reactions">
-            {message.reactions.map((summary: MessageReaction) => (
+            {message.reactions.map((summary) => (
               <ReactionButton
                 key={summary.emoji}
                 summary={summary}
@@ -144,7 +128,7 @@ export function Message(props: MessageProps) {
           <PopoverButton
             className="t-add-reaction-button"
             popoverComponent={ReactionPicker}
-            popoverProps={reactionPickerProps}
+            popoverProps={{ messageId: message.id }}
             aria-label={t.ADD_REACTION}
           >
             <Icon type="addEmoji" className="t-add-reaction-icon" size={20} />
@@ -161,7 +145,7 @@ function ReactionButton({
   common,
   permissions,
 }: {
-  summary: MessageReaction;
+  summary: ReactionsSummarySnapshot;
   message: MessageProps["message"];
   common: MessageProps["common"];
   permissions: MessageProps["permissions"];

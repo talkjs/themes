@@ -44,11 +44,6 @@ export function Message(props) {
   const focused =
     focusedMessageId !== undefined && message.id === focusedMessageId;
 
-  const reactionPickerProps = {
-    messageId: message.id,
-    colorScheme: "light",
-  };
-
   return (
     <div
       className="t-theme-message"
@@ -134,7 +129,7 @@ export function Message(props) {
           <PopoverButton
             className="t-add-reaction-button"
             popoverComponent={ReactionPicker}
-            popoverProps={reactionPickerProps}
+            popoverProps={{ messageId: message.id }}
             aria-label={t.ADD_REACTION}
           >
             <Icon type="addEmoji" className="t-add-reaction-icon" size={20} />
