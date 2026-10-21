@@ -65,6 +65,9 @@
   grid-area: sender;
   font-size: 0.875em;
   max-width: min(100%, 70ch);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   font-weight: var(--t-font-weight-bold);
 }
 
@@ -312,13 +315,16 @@
 }
 
 .t-theme-message[t-sender="other"]:last-child {
+  /* The sender spans message and actions. Put any extra name width in the
+     actions column so it doesn't stretch the bubble, including in groups. */
+  grid-template-columns: auto minmax(0, auto) 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
     ".      sender  sender"
     "avatar message actions";
 }
 
-.t-theme-message[t-sender="other"]:first-child:last-child {
+.t-theme-message[t-sender="other"]:only-child {
   grid-template-rows: auto auto auto;
   grid-template-areas:
     ".      sender  sender"

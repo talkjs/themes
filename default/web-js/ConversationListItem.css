@@ -33,6 +33,13 @@
   text-decoration: none;
 }
 
+/*
+ * Block link: stretch the title link's pseudo-element over the entire item,
+ * using the item's position: relative as its containing block. This makes the
+ * whole row clickable while keeping only the conversation title in the link
+ * text, so screen readers don't announce the preview and timestamp as well.
+ * See https://adrianroselli.com/2020/02/block-links-cards-clickable-regions-etc.html
+ */
 .t-theme-conversation-list-item .t-conversation-name-link::after {
   content: "";
   position: absolute;
